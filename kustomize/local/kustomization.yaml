@@ -16,5 +16,5 @@ resources:
 generatorOptions:
   disableNameSuffixHash: true
   
-patchesStrategicMerge:
-  - deployment.yaml
+patches:
+  - path: deployment.yaml
