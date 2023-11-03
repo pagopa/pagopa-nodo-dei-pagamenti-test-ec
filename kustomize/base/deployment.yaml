@@ -11,13 +11,13 @@ spec:
     type: RollingUpdate
   template:
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: nodo-prf
-                operator: Exists
+      nodeSelector:
+        envnodopa: sit-uat
+      tolerations:
+      - key: "envnodopa"
+        operator: "Equal"
+        value: "sit-uat"
+        effect: "NoExecute"
       restartPolicy: Always
       containers:
         - name: mock-ec-prf

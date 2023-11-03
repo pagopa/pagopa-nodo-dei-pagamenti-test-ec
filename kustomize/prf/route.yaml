@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: "mock-ec-prf" 
+spec:
+  host: mock-ec-prf.tst-npc.sia.eu
+  port:
+    targetPort: 8084
+  path: "/"
+  to:
+    kind: Service
+    name: "mock-ec-prf"
+    weight: 100
+  wildcardPolicy: None

@@ -5,16 +5,12 @@ namespace: mock-ec-prf
 
 images:
   - name: mock-ec-prf-image
-    newName: nodopauatregistrypci.azurecr.io/mock-ec-prf
+    newName: toolbox.sia.eu/docker-pagopa/mock-ec-prf
     newTag: 1.1.1
 
 resources:
-  - namespace.yaml
-  - ingress.yaml
+  - route.yaml
   - ../base
 
 generatorOptions:
   disableNameSuffixHash: true
-  
-patches:
-  - path: service.yaml
