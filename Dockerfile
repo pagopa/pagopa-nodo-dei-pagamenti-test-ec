@@ -14,7 +14,7 @@ ADD rpt.xml /tmp/rpt.xml
 ADD apm.conf /tmp/apm.conf
 ADD elastic-apm-agent-1.26.0.jar /tmp/elastic-apm-agent-1.26.0.jar
 ADD startPAMock.sh /tmp/startPAMock.sh
-ADD /tmp/target/PA_Mock-1.1.1.jar /tmp/PA_Mock-1.1.1.jar
+ADD ./target/PA_Mock-1.1.1.jar /tmp/PA_Mock-1.1.1.jar
 
 WORKDIR /tmp/
 
