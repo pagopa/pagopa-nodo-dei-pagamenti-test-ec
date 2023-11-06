@@ -18,12 +18,6 @@ ADD ./target/PA_Mock-1.1.1.jar /tmp/PA_Mock-1.1.1.jar
 
 WORKDIR /tmp/
 
-#RUN mvn package
-
-RUN mv startPAMock.sh target/startPAMock.sh
-
-WORKDIR target
-
 RUN chmod +777 startPAMock.sh
 
 EXPOSE 8484
