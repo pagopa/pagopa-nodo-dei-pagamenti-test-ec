@@ -1,18 +1,24 @@
-# Build stage
-FROM maven:3.6.0-jdk-11-slim
-COPY pom.xml /tmp/
-COPY src /tmp/src/
-COPY log4j2.xml /tmp/log4j2.xml
-COPY PA_List.dat /tmp/PA_List.dat
-COPY TS_Config.conf /tmp/TS_Config.conf
-COPY rpt.xml /tmp/rpt.xml
-COPY apm.conf /tmp/apm.conf
-COPY elastic-apm-agent-1.26.0.jar /tmp/elastic-apm-agent-1.26.0.jar
-COPY startPAMock.sh /tmp/startPAMock.sh
+FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
+
+ENV http_proxy=http://csproxy:8080
+ENV https_proxy=http://csproxy:8080
+ENV no_proxy=toolbox.sia.eu
+
+#FROM maven:3.6.0-jdk-11-slim
+#ADD pom.xml /tmp/
+#ADD src /tmp/src/
+ADD log4j2.xml /tmp/log4j2.xml
+ADD PA_List.dat /tmp/PA_List.dat
+ADD TS_Config.conf /tmp/TS_Config.conf
+ADD rpt.xml /tmp/rpt.xml
+ADD apm.conf /tmp/apm.conf
+ADD elastic-apm-agent-1.26.0.jar /tmp/elastic-apm-agent-1.26.0.jar
+ADD startPAMock.sh /tmp/startPAMock.sh
+ADD /tmp/target/PA_Mock-1.1.1.jar /tmp/PA_Mock-1.1.1.jar
 
 WORKDIR /tmp/
 
-RUN mvn package
+#RUN mvn package
 
 RUN mv startPAMock.sh target/startPAMock.sh
 
