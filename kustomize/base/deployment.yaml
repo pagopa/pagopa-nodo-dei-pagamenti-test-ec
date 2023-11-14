@@ -12,13 +12,15 @@ spec:
   template:
     spec:
       nodeSelector:
-        envnodopa: sit-uat
+        envnodopa: prf
       tolerations:
       - key: "envnodopa"
         operator: "Equal"
-        value: "sit-uat"
+        value: "prf"
         effect: "NoExecute"
       restartPolicy: Always
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: mock-ec-prf
           image: mock-ec-prf-image
