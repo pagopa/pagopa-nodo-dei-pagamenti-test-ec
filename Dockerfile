@@ -1,8 +1,9 @@
-FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine
+#FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
 
-ENV http_proxy=http://csproxy:8080
-ENV https_proxy=http://csproxy:8080
-ENV no_proxy=toolbox.sia.eu
+#ENV http_proxy=http://csproxy:8080
+#ENV https_proxy=http://csproxy:8080
+#ENV no_proxy=toolbox.sia.eu
 
 #FROM maven:3.6.0-jdk-11-slim
 #ADD pom.xml /tmp/
@@ -15,9 +16,9 @@ ADD apm.conf /tmp/apm.conf
 ADD elastic-apm-agent-1.26.0.jar /tmp/elastic-apm-agent-1.26.0.jar
 ADD startPAMock.sh /tmp/startPAMock.sh
 ADD ./target /tmp/target
-ADD ./target/PA_Mock-1.1.1.jar /tmp/PA_Mock-1.1.1.jar
+#ADD ./target/PA_Mock-1.1.1.jar /tmp/PA_Mock-1.1.1.jar
 
-WORKDIR /tmp
+WORKDIR /tmp/target
 
 RUN chmod 777 startPAMock.sh
 
