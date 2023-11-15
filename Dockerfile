@@ -16,6 +16,8 @@ ADD startPAMock.sh /tmp/target/startPAMock.sh
 WORKDIR /tmp/target
 
 RUN chmod 777 startPAMock.sh
+RUN mkdir logs
+RUN chmod 777 logs
 
 EXPOSE 8484
 
