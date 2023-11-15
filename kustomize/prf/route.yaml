@@ -5,7 +5,7 @@ metadata:
 spec:
   host: mock-ec-prf.tst-npc.sia.eu
   port:
-    targetPort: 8084
+    targetPort: 8484
   path: "/"
   to:
     kind: Service
