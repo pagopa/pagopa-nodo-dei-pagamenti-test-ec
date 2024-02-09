@@ -41,6 +41,7 @@ import javax.xml.bind.annotation.XmlType;
     "idTransfer",
     "transferAmount",
     "fiscalCodePA",
+    "companyName",
     "iban",
     "richiestaMarcaDaBollo",
     "remittanceInformation",
@@ -62,6 +63,7 @@ public class CtTransferPAV2 {
     @XmlElement(required = true)
     protected String transferCategory;
     protected CtMetadata metadata;
+    protected String companyName;
 
     /**
      * Recupera il valore della proprieta idTransfer.
@@ -246,5 +248,13 @@ public class CtTransferPAV2 {
     public void setMetadata(CtMetadata value) {
         this.metadata = value;
     }
+    
+    public String getCompanyName() {
+		return companyName;
+	}
+    
+    public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 
 }
