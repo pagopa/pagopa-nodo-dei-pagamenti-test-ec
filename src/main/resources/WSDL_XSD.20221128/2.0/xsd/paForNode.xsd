@@ -240,7 +240,7 @@
 
 			<xsd:element name="payer" type="tns:ctSubject" minOccurs="0" />
 			<xsd:element name="paymentMethod" type="common:stText35" minOccurs="0" />
-
+			<xsd:element name="paymentNote" type="tns:stText210" minOccurs="0" />
 			<xsd:element name="fee" type="common:stAmount" minOccurs="0" />
 			<xsd:element name="primaryCiIncurredFee" type="common:stAmount" minOccurs="0" />
 			<xsd:element name="idBundle" type="common:stText70" minOccurs="0" />
@@ -360,6 +360,7 @@
 			<xsd:element name="idTransfer" type="tns:stIdTransfer" />
 			<xsd:element name="transferAmount" type="tns:stAmountNotZero" />
 			<xsd:element name="fiscalCodePA" type="common:stFiscalCodePA" />
+			<xsd:element name="companyName" type="common:stText140" />
 			<xsd:choice>
 				<xsd:element name="IBAN" type="tns:stIBAN" />
 				<xsd:element name="MBDAttachment" type="xsd:base64Binary" />
