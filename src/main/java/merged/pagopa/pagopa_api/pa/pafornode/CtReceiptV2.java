@@ -76,6 +76,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "channelDescription",
     "payer",
     "paymentMethod",
+    "paymentNote",
     "fee",
     "primaryCiIncurredFee",
     "idBundle",
@@ -121,6 +122,7 @@ public class CtReceiptV2 {
     protected String channelDescription;
     protected CtSubject payer;
     protected String paymentMethod;
+    protected String paymentNote;
     protected BigDecimal fee;
     protected BigDecimal primaryCiIncurredFee;
     protected String idBundle;
