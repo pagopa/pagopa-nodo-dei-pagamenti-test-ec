@@ -27,6 +27,7 @@ import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentOptionDescriptionPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentOptionsDescriptionListPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentPAV2;
+import merged.pagopa.pagopa_api.pa.pafornode.CtRichiestaMarcaDaBollo;
 import merged.pagopa.pagopa_api.pa.pafornode.CtSubject;
 import merged.pagopa.pagopa_api.pa.pafornode.CtTransferListPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtTransferListPAV2;
@@ -244,9 +245,14 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 			}
 			// check metadati
 			boolean meta = false;
+			boolean isMdb = false;
 			try {
-				if (requestBody.getPaymentNote().split("_")[1].toLowerCase().matches("m")) {
+				String paymentNoticePt1 = requestBody.getPaymentNote().split("_")[1];
+				if (paymentNoticePt1.toLowerCase().matches("m")) {
 					meta = true;
+				}
+				else if (paymentNoticePt1 != null && paymentNoticePt1.toLowerCase().startsWith("mdb")) {
+					isMdb = true;
 				}
 			} catch (NullPointerException n) {
 				meta = false;
@@ -254,6 +260,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 			}
 			res.setOutcome(StOutcome.OK);
 			CtPaymentPAV2 data = new CtPaymentPAV2();
+			data.setCompanyName(getRandomNotNum());
 			data.setCreditorReferenceId(requestBody.getQrCode().getNoticeNumber().substring(1));
 			data.setPaymentAmount(new BigDecimal(totAmout).setScale(2, RoundingMode.HALF_EVEN));
 			GregorianCalendar cal = new GregorianCalendar();
@@ -281,6 +288,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 				CtTransferPAV2 ctTransferPA = new CtTransferPAV2();
 				ctTransferPA.setIdTransfer(i);
 				ctTransferPA.setTransferAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
+				ctTransferPA.setCompanyName(RandomStringUtils.randomAlphabetic(5));
 				if (i == 1)
 					ctTransferPA.setFiscalCodePA(requestBody.getQrCode().getFiscalCode());
 				else
@@ -288,6 +296,14 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 				ctTransferPA.setIBAN("IT00R0000000000000000000000");
 				ctTransferPA.setRemittanceInformation("remittanceInformation");
 				ctTransferPA.setTransferCategory("Categoria");
+				if(isMdb) {
+					CtRichiestaMarcaDaBollo mdb = new CtRichiestaMarcaDaBollo();
+					mdb.setProvinciaResidenza("NA");
+					mdb.setTipoBollo("01");
+					mdb.setHashDocumento(mdb.getProvinciaResidenza().getBytes());
+					ctTransferPA.setRichiestaMarcaDaBollo(mdb);
+					ctTransferPA.setIBAN(null); // iban is null when mdb is set
+				}
 				if (meta) {
 					CtMetadata mDataTr = new CtMetadata();
 					CtMapEntry mETr = new CtMapEntry();
