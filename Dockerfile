@@ -1,5 +1,5 @@
-#FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
-FROM openjdk:8-jdk-alpine
+FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
+#FROM openjdk:8-jdk-alpine
 ENV http_proxy=http://csproxy:8080
 ENV https_proxy=http://csproxy:8080
 ENV no_proxy=toolbox.sia.eu
