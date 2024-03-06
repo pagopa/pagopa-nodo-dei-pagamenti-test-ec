@@ -1,5 +1,5 @@
-FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
-
+#FROM toolbox.sia.eu/docker/openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine
 ENV http_proxy=http://csproxy:8080
 ENV https_proxy=http://csproxy:8080
 ENV no_proxy=toolbox.sia.eu
@@ -12,6 +12,7 @@ ADD rpt.xml /tmp/target/rpt.xml
 ADD apm.conf /tmp/target/apm.conf
 ADD elastic-apm-agent-1.26.0.jar /tmp/target/elastic-apm-agent-1.26.0.jar
 ADD startPAMock.sh /tmp/target/startPAMock.sh
+ADD src/main/resources /tmp/target
 
 WORKDIR /tmp/target
 
