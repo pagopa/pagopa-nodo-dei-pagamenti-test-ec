@@ -247,13 +247,15 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 			boolean meta = false;
 			boolean isMdb = false;
 			try {
-				String paymentNoticePt1 = requestBody.getPaymentNote().split("_")[1];
-				if (paymentNoticePt1.toLowerCase().matches("m")) {
+				String paymentNoticePt1 = requestBody.getPaymentNote().split("_").length > 1? requestBody.getPaymentNote().split("_")[1] : null;
+				if (paymentNoticePt1 != null && paymentNoticePt1.toLowerCase().matches("m")) {
 					meta = true;
 				}
 				else if (paymentNoticePt1 != null && paymentNoticePt1.toLowerCase().startsWith("mdb")) {
 					isMdb = true;
 				}
+				else {
+					isMdb = false;				}
 			} catch (NullPointerException n) {
 				meta = false;
 				logger.warn("Tag metadata not found in payment note");
