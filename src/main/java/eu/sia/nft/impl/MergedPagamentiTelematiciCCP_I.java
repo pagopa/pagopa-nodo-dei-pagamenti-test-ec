@@ -302,7 +302,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 					CtRichiestaMarcaDaBollo mdb = new CtRichiestaMarcaDaBollo();
 					mdb.setProvinciaResidenza("NA");
 					mdb.setTipoBollo("01");
-					mdb.setHashDocumento(mdb.getProvinciaResidenza().getBytes());
+					mdb.setHashDocumento("wHpFSLCGZjIvNSXxqtGbxg7275t446DRTk5ZrsdUQ6E=".getBytes());
 					ctTransferPA.setRichiestaMarcaDaBollo(mdb);
 					ctTransferPA.setIBAN(null); // iban is null when mdb is set
 				}
