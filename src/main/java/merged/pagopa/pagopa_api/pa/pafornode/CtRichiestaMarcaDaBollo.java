@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
 public class CtRichiestaMarcaDaBollo {
 
     @XmlElement(required = true)
-    protected byte[] hashDocumento;
+    protected String hashDocumento;
     @XmlElement(required = true)
     protected String tipoBollo;
     @XmlElement(required = true)
@@ -50,7 +50,7 @@ public class CtRichiestaMarcaDaBollo {
      *     possible object is
      *     byte[]
      */
-    public byte[] getHashDocumento() {
+    public String getHashDocumento() {
         return hashDocumento;
     }
 
@@ -61,7 +61,7 @@ public class CtRichiestaMarcaDaBollo {
      *     allowed object is
      *     byte[]
      */
-    public void setHashDocumento(byte[] value) {
+    public void setHashDocumento(String value) {
         this.hashDocumento = value;
     }
 
