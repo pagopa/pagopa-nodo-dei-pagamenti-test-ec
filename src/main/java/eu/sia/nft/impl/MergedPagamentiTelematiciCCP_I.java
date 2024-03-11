@@ -262,7 +262,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 			}
 			res.setOutcome(StOutcome.OK);
 			CtPaymentPAV2 data = new CtPaymentPAV2();
-			data.setCompanyName(getRandomNotNum());
+			data.setCompanyName(requestBody.getPaymentNote() != null && requestBody.getPaymentNote().equalsIgnoreCase("sprko") ? requestBody.getPaymentNote(): getRandomNotNum());
 			data.setCreditorReferenceId(requestBody.getQrCode().getNoticeNumber().substring(1));
 			data.setPaymentAmount(new BigDecimal(totAmout).setScale(2, RoundingMode.HALF_EVEN));
 			GregorianCalendar cal = new GregorianCalendar();
@@ -290,7 +290,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 				CtTransferPAV2 ctTransferPA = new CtTransferPAV2();
 				ctTransferPA.setIdTransfer(i);
 				ctTransferPA.setTransferAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
-				ctTransferPA.setCompanyName(RandomStringUtils.randomAlphabetic(5));
+				ctTransferPA.setCompanyName(requestBody.getPaymentNote() != null && requestBody.getPaymentNote().equalsIgnoreCase("sprko") ? requestBody.getPaymentNote(): getRandomNotNum());
 				if (i == 1)
 					ctTransferPA.setFiscalCodePA(requestBody.getQrCode().getFiscalCode());
 				else
