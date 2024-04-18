@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mock-ec-prf
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 1
