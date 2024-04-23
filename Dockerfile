@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:3.6.0-jdk-11-slim
+FROM maven:3.6.0-jdk-11-slim@sha256:4f0face24d2f79439a8fa394555b09be99c9ad537b9b19983fb8cc358818a42d
 COPY pom.xml /tmp/
 COPY src /tmp/src/
 COPY log4j2.xml /tmp/log4j2.xml
