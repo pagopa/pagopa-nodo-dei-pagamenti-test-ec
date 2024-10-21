@@ -27,6 +27,7 @@ import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentOptionDescriptionPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentOptionsDescriptionListPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentPAV2;
+import merged.pagopa.pagopa_api.pa.pafornode.CtQrCode;
 import merged.pagopa.pagopa_api.pa.pafornode.CtRichiestaMarcaDaBollo;
 import merged.pagopa.pagopa_api.pa.pafornode.CtSubject;
 import merged.pagopa.pagopa_api.pa.pafornode.CtTransferListPA;
@@ -160,21 +161,21 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 	@Override
 	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(PaDemandPaymentNoticeRequest requestBody) {
 		PaDemandPaymentNoticeResponse res = new PaDemandPaymentNoticeResponse();
-//		res.setOutcome(StOutcome.OK);
-//		CtQrCode qrC = new CtQrCode();
-//		qrC.setFiscalCode(requestBody.getIdPA());
-//		qrC.setNoticeNumber(getRandomNotNum());
-//		res.setQrCode(qrC);
-//		res.setPaymentDescription("PerfTest");
-//		res.setFiscalCodePA(requestBody.getIdPA());
-//		res.setCompanyName("italpetrolcemetermotessilfarmometalchimica");
-//		res.setOfficeName("Ufficio impiegati scomparsi");
-//		CtPaymentOptionsDescriptionListPA list = new CtPaymentOptionsDescriptionListPA();
-//		CtPaymentOptionDescriptionPA objList = new CtPaymentOptionDescriptionPA();
-//		objList.setAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
-//		objList.setOptions(StAmountOption.EQ);
-//		list.setPaymentOptionDescription(objList);
-//		res.setPaymentList(list);
+		res.setOutcome(StOutcome.OK);
+		CtQrCode qrC = new CtQrCode();
+		qrC.setFiscalCode(requestBody.getIdPA());
+		qrC.setNoticeNumber(getRandomNotNum());
+		res.setQrCode(qrC);
+		res.setPaymentDescription("PerfTest");
+		res.setFiscalCodePA(requestBody.getIdPA());
+		res.setCompanyName("italpetrolcemetermotessilfarmometalchimica");
+		res.setOfficeName("Ufficio impiegati scomparsi");
+		CtPaymentOptionsDescriptionListPA list = new CtPaymentOptionsDescriptionListPA();
+		CtPaymentOptionDescriptionPA objList = new CtPaymentOptionDescriptionPA();
+		objList.setAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
+		objList.setOptions(StAmountOption.EQ);
+		list.setPaymentOptionDescription(objList);
+		res.setPaymentList(list);
 		return res;
 	}
 
