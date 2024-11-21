@@ -11,8 +11,8 @@ spec:
     type: RollingUpdate
   template:
     spec:
-      nodeSelector:
-        envnodopa: prf
+      #nodeSelector:
+      #  envnodopa: prf
       tolerations:
       - key: "envnodopa"
         operator: "Equal"
