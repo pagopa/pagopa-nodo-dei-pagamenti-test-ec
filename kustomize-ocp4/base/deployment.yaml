@@ -11,13 +11,6 @@ spec:
     type: RollingUpdate
   template:
     spec:
-      #nodeSelector:
-      #  envnodopa: prf
-      tolerations:
-      - key: "envnodopa"
-        operator: "Equal"
-        value: "prf"
-        effect: "NoExecute"
       restartPolicy: Always
       imagePullSecrets:
         - name: regcred
