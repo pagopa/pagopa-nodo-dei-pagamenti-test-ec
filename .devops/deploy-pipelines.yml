@@ -156,7 +156,7 @@ stages:
 
                 - template: templates/helm-microservice-chart-setup/template.yaml@pagopaCommons
                   parameters:
-                    DEPLOY_VERSION: $(next_version)$(current_version)
+                    DEPLOY_VERSION: $(next_version)
 
                 - template: templates/helm-microservice-chart-deploy/template.yaml@pagopaCommons
                   parameters:
@@ -166,7 +166,7 @@ stages:
                     NAMESPACE: $(nameSpace)
                     APP_NAME: $(imageRepository)
                     VALUE_FILE: "helm/values-${{ parameters['ENV'] }}.yaml"
-                    DEPLOY_VERSION: $(next_version)$(current_version)
+                    DEPLOY_VERSION: $(next_version)
                     APPINSIGHTS_SERVICE_CONN: ${{ variables.appInsightsServiceConn }}
                     APPINSIGHTS_RESOURCE_ID: ${{ variables.appInsightsResourceId }}
                     ARGUMENTS: >-
