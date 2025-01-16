@@ -124,7 +124,7 @@ stages:
               CONTAINER_REGISTRY_SERVICE_CONN: $(dockerRegistryServiceConnection)
               CONTAINER_REGISTRY_FQDN: $(dockerRegistryFqdn)
               DOCKER_IMAGE_NAME: $(imageRepository)
-              DOCKER_IMAGE_TAG: "$(next_version)$(current_version)"
+              DOCKER_IMAGE_TAG: "$(next_version)"
               FORCE_REPLACE_DOCKER_IMAGE: ${{ parameters.FORCE_REPLACE_DOCKER_IMAGE }}
 
   # Deploy on K8s with Helm
