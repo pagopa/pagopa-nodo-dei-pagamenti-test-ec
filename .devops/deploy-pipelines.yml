@@ -14,6 +14,7 @@ parameters:
       - dev
       - uat
       - prod
+      - prf
   - name: SEMVER
     displayName: "When packing a release, define the version bump to apply. Use only buildNumber or skip for manual deployment"
     type: string
