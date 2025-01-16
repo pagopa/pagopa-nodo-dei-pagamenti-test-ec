@@ -33,9 +33,9 @@ basemock: &basemock
       - 8080
   serviceAccount:
     create: false
-#  securityContext:
-#    readOnlyRootFilesystem: false
-#    allowPrivilegeEscalation: true
+  securityContext:
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
 #    capabilities:
 #      drop:
 #        - all
