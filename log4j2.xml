@@ -7,7 +7,7 @@
 	</Properties>
 	<Appenders>
 		<!--		<RollingFile name="rollingFile" fileName="${basePath}/PA_Mock.log" filePattern="${basePath}/PA_Mock.log.%i"-->
-		<RollingFile name="rollingFile" fileName="PA_Mock.log" filePattern="/PA_Mock.log.%i"
+		<RollingFile name="rollingFile" fileName="/tmp/PA_Mock.log" filePattern="/tmp/PA_Mock.log.%i"
 								 ignoreExceptions="false">
 			<PatternLayout pattern="${pattern}" />
 			<Policies>
