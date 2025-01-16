@@ -12,8 +12,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import co.elastic.apm.api.ElasticApm;
-import co.elastic.apm.api.Transaction;
 import eu.sia.nft.Data;
 import eu.sia.nft.MainPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtEntityUniqueIdentifier;
