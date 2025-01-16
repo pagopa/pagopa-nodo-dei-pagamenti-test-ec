@@ -133,6 +133,7 @@ stages:
       - Release
       - Build
     variables:
+      deploy_version: $[ stageDependencies.Release.make_release.outputs['version.value'] ]
       next_version: $[ stageDependencies.Release.make_release.outputs['next_version.value'] ]
       current_version: $[ stageDependencies.Release.skip_release.outputs['current_version.value'] ]
     jobs:
@@ -149,7 +150,8 @@ stages:
 
                 - script: |
                     git checkout $(sourceBranch)
-                    echo "[INFO] Branch: $(sourceBranch) Deploy version: $(next_version)$(current_version)"
+                    echo "[INFO] Branch: $(sourceBranch) Deploy version#1: $(next_version)$(current_version)"
+                    echo "[INFO] Branch: $(sourceBranch) Deploy version#2: $(current_version)"
                   displayName: Checkout
 
                 - template: templates/helm-microservice-chart-setup/template.yaml@pagopaCommons
