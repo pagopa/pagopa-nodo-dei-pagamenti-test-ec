@@ -15,13 +15,13 @@ basemock: &basemock
   readinessProbe:
     handlerType: tcpSocket
     tcpSocket:
-      port: 8080
+      port: 8484
     initialDelaySeconds: 20
     periodSeconds: 10
   livenessProbe:
     handlerType: tcpSocket
     tcpSocket:
-      port: 8080
+      port: 8484
     initialDelaySeconds: 30
     periodSeconds: 20
   deployment:
