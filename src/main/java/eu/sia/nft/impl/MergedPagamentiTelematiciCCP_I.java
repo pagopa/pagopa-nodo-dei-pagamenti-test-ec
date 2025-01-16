@@ -5,6 +5,8 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Random;
 
+import merged.pagopa.pagopa_api.pa.pafornode.PaDemandPaymentNoticeRequest;
+import merged.pagopa.pagopa_api.pa.pafornode.PaDemandPaymentNoticeResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -136,6 +138,12 @@ public class MergedPagamentiTelematiciCCP_I implements MergedPortType {
 		paGetPaymentRes.setData(dat);
 		logger.info("paGetPayment -> " + requestBody.getQrCode().getNoticeNumber());
 		return paGetPaymentRes;
+	}
+
+	@Override
+	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(PaDemandPaymentNoticeRequest bodyrequest) {
+		PaDemandPaymentNoticeResponse res = new PaDemandPaymentNoticeResponse();
+		return res;
 	}
 
 	String getRandomPA(String actual) {
