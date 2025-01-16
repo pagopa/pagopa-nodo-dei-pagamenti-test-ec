@@ -34,8 +34,8 @@ basemock: &basemock
   serviceAccount:
     create: false
   securityContext:
-    readOnlyRootFilesystem: true
-    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
     capabilities:
       drop:
         - all
