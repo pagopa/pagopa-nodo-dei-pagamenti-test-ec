@@ -81,4 +81,11 @@ public class CtPaymentOptionsDescriptionListPA {
         return this.paymentOptionDescription;
     }
 
+    public void setPaymentOptionDescription(CtPaymentOptionDescriptionPA value) {
+        if (paymentOptionDescription == null) {
+            paymentOptionDescription = new ArrayList<CtPaymentOptionDescriptionPA>();
+        }
+        this.paymentOptionDescription.add(value);
+    }
+
 }

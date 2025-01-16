@@ -5,8 +5,10 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Random;
 
+import merged.pagopa.pagopa_api.pa.pafornode.CtQrCode;
 import merged.pagopa.pagopa_api.pa.pafornode.PaDemandPaymentNoticeRequest;
 import merged.pagopa.pagopa_api.pa.pafornode.PaDemandPaymentNoticeResponse;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -140,9 +142,29 @@ public class MergedPagamentiTelematiciCCP_I implements MergedPortType {
 		return paGetPaymentRes;
 	}
 
+	String getRandomNotNum() {
+		return "311" + RandomStringUtils.randomNumeric(15);
+	}
+
 	@Override
-	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(PaDemandPaymentNoticeRequest bodyrequest) {
+	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(PaDemandPaymentNoticeRequest requestBody) {
+		logger.info("PaDemandPaymentNotice -> wip");
 		PaDemandPaymentNoticeResponse res = new PaDemandPaymentNoticeResponse();
+		res.setOutcome(StOutcome.OK);
+		CtQrCode qrC = new CtQrCode();
+		qrC.setFiscalCode(requestBody.getIdPA());
+		qrC.setNoticeNumber(getRandomNotNum());
+		res.setQrCode(qrC);
+		res.setPaymentDescription("PerfTest");
+		res.setFiscalCodePA(requestBody.getIdPA());
+		res.setCompanyName("italpetrolcemetermotessilfarmometalchimica");
+		res.setOfficeName("Ufficio impiegati scomparsi");
+		CtPaymentOptionsDescriptionListPA list = new CtPaymentOptionsDescriptionListPA();
+		CtPaymentOptionDescriptionPA objList = new CtPaymentOptionDescriptionPA();
+		objList.setAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
+		objList.setOptions(StAmountOption.EQ);
+		list.setPaymentOptionDescription(objList);
+		res.setPaymentList(list);
 		return res;
 	}
 
