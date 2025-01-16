@@ -171,7 +171,7 @@ stages:
                     APPINSIGHTS_RESOURCE_ID: ${{ variables.appInsightsResourceId }}
                     ARGUMENTS: >-
                       --set mockecprf.image.tag="latest"
-                      # --set mockecprf.image.tag="$(next_version)$(current_version)"
+
 
 
 # parameters:
