@@ -39,6 +39,8 @@ basemock: &basemock
     capabilities:
       drop:
         - all
+  tmpVolumeMount:
+    create: true        
   resources:
     requests:
       memory: "1Gi"
