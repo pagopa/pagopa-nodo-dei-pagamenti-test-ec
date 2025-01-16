@@ -149,7 +149,7 @@ stages:
 
                 - script: |
                     git checkout $(sourceBranch)
-                    echo "[INFO] Branch: $(sourceBranch) Deploy version: $(deploy_version)"
+                    echo "[INFO] Branch: $(sourceBranch) Deploy version: $(next_version)$(current_version)"
                   displayName: Checkout
 
                 - template: templates/helm-microservice-chart-setup/template.yaml@pagopaCommons
