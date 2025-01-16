@@ -33,15 +33,15 @@ basemock: &basemock
       - 8080
   serviceAccount:
     create: false
-  securityContext:
-    readOnlyRootFilesystem: false
-    allowPrivilegeEscalation: true
-    capabilities:
-      drop:
-        - all
-  tmpFolder:
-    name: tmp
-    mountPath: /tmp
+#  securityContext:
+#    readOnlyRootFilesystem: false
+#    allowPrivilegeEscalation: true
+#    capabilities:
+#      drop:
+#        - all
+#  tmpFolder:
+#    name: tmp
+#    mountPath: /tmp
   resources:
     requests:
       memory: "1Gi"
