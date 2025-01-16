@@ -11,20 +11,11 @@ spec:
     type: RollingUpdate
   template:
     spec:
-      #nodeSelector:
-      #  envnodopa: prf
-      tolerations:
-      - key: "envnodopa"
-        operator: "Equal"
-        value: "prf"
-        effect: "NoExecute"
       restartPolicy: Always
-      imagePullSecrets:
-        - name: regcred
       containers:
         - name: mock-ec-prf
           image: mock-ec-prf-image
-          imagePullPolicy: Always
+          imagePullPolicy: Never
           ports:
             - name: mock-ec-prf
               containerPort: 8484

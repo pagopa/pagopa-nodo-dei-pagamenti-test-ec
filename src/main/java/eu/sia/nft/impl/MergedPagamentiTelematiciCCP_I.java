@@ -27,6 +27,8 @@ import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentOptionDescriptionPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentOptionsDescriptionListPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtPaymentPAV2;
+import merged.pagopa.pagopa_api.pa.pafornode.CtQrCode;
+import merged.pagopa.pagopa_api.pa.pafornode.CtRichiestaMarcaDaBollo;
 import merged.pagopa.pagopa_api.pa.pafornode.CtSubject;
 import merged.pagopa.pagopa_api.pa.pafornode.CtTransferListPA;
 import merged.pagopa.pagopa_api.pa.pafornode.CtTransferListPAV2;
@@ -159,21 +161,21 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 	@Override
 	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(PaDemandPaymentNoticeRequest requestBody) {
 		PaDemandPaymentNoticeResponse res = new PaDemandPaymentNoticeResponse();
-//		res.setOutcome(StOutcome.OK);
-//		CtQrCode qrC = new CtQrCode();
-//		qrC.setFiscalCode(requestBody.getIdPA());
-//		qrC.setNoticeNumber(getRandomNotNum());
-//		res.setQrCode(qrC);
-//		res.setPaymentDescription("PerfTest");
-//		res.setFiscalCodePA(requestBody.getIdPA());
-//		res.setCompanyName("italpetrolcemetermotessilfarmometalchimica");
-//		res.setOfficeName("Ufficio impiegati scomparsi");
-//		CtPaymentOptionsDescriptionListPA list = new CtPaymentOptionsDescriptionListPA();
-//		CtPaymentOptionDescriptionPA objList = new CtPaymentOptionDescriptionPA();
-//		objList.setAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
-//		objList.setOptions(StAmountOption.EQ);
-//		list.setPaymentOptionDescription(objList);
-//		res.setPaymentList(list);
+		res.setOutcome(StOutcome.OK);
+		CtQrCode qrC = new CtQrCode();
+		qrC.setFiscalCode(requestBody.getIdPA());
+		qrC.setNoticeNumber(getRandomNotNum());
+		res.setQrCode(qrC);
+		res.setPaymentDescription("PerfTest");
+		res.setFiscalCodePA(requestBody.getIdPA());
+		res.setCompanyName("italpetrolcemetermotessilfarmometalchimica");
+		res.setOfficeName("Ufficio impiegati scomparsi");
+		CtPaymentOptionsDescriptionListPA list = new CtPaymentOptionsDescriptionListPA();
+		CtPaymentOptionDescriptionPA objList = new CtPaymentOptionDescriptionPA();
+		objList.setAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
+		objList.setOptions(StAmountOption.EQ);
+		list.setPaymentOptionDescription(objList);
+		res.setPaymentList(list);
 		return res;
 	}
 
@@ -244,16 +246,24 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 			}
 			// check metadati
 			boolean meta = false;
+			boolean isMdb = false;
 			try {
-				if (requestBody.getPaymentNote().split("_")[1].toLowerCase().matches("m")) {
+				String paymentNoticePt1 = requestBody.getPaymentNote().split("_").length > 1? requestBody.getPaymentNote().split("_")[1] : null;
+				if (paymentNoticePt1 != null && paymentNoticePt1.toLowerCase().matches("m")) {
 					meta = true;
 				}
+				else if (paymentNoticePt1 != null && paymentNoticePt1.toLowerCase().startsWith("mdb")) {
+					isMdb = true;
+				}
+				else {
+					isMdb = false;				}
 			} catch (NullPointerException n) {
 				meta = false;
 				logger.warn("Tag metadata not found in payment note");
 			}
 			res.setOutcome(StOutcome.OK);
 			CtPaymentPAV2 data = new CtPaymentPAV2();
+			data.setCompanyName(requestBody.getPaymentNote() != null && requestBody.getPaymentNote().equalsIgnoreCase("sprko") ? requestBody.getPaymentNote(): getRandomNotNum());
 			data.setCreditorReferenceId(requestBody.getQrCode().getNoticeNumber().substring(1));
 			data.setPaymentAmount(new BigDecimal(totAmout).setScale(2, RoundingMode.HALF_EVEN));
 			GregorianCalendar cal = new GregorianCalendar();
@@ -281,6 +291,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 				CtTransferPAV2 ctTransferPA = new CtTransferPAV2();
 				ctTransferPA.setIdTransfer(i);
 				ctTransferPA.setTransferAmount(new BigDecimal(1).setScale(2, RoundingMode.HALF_EVEN));
+				ctTransferPA.setCompanyName(requestBody.getPaymentNote() != null && requestBody.getPaymentNote().equalsIgnoreCase("sprko") ? requestBody.getPaymentNote(): getRandomNotNum());
 				if (i == 1)
 					ctTransferPA.setFiscalCodePA(requestBody.getQrCode().getFiscalCode());
 				else
@@ -288,6 +299,14 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 				ctTransferPA.setIBAN("IT00R0000000000000000000000");
 				ctTransferPA.setRemittanceInformation("remittanceInformation");
 				ctTransferPA.setTransferCategory("Categoria");
+				if(isMdb) {
+					CtRichiestaMarcaDaBollo mdb = new CtRichiestaMarcaDaBollo();
+					mdb.setProvinciaResidenza("NA");
+					mdb.setTipoBollo("01");
+					mdb.setHashDocumento("wHpFSLCGZjIvNSXxqtGbxg7275t446DRTk5ZrsdUQ6E=");
+					ctTransferPA.setRichiestaMarcaDaBollo(mdb);
+					ctTransferPA.setIBAN(null); // iban is null when mdb is set
+				}
 				if (meta) {
 					CtMetadata mDataTr = new CtMetadata();
 					CtMapEntry mETr = new CtMapEntry();

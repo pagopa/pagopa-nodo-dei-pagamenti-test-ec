@@ -41,6 +41,7 @@ import javax.xml.bind.annotation.XmlType;
     "idTransfer",
     "transferAmount",
     "fiscalCodePA",
+    "companyName",
     "iban",
     "mbdAttachment",
     "remittanceInformation",
@@ -54,6 +55,7 @@ public class CtTransferPAReceiptV2 {
     protected BigDecimal transferAmount;
     @XmlElement(required = true)
     protected String fiscalCodePA;
+    protected String companyName;
     @XmlElement(name = "IBAN")
     protected String iban;
     @XmlElement(name = "MBDAttachment")
