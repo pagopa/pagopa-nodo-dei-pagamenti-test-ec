@@ -39,15 +39,15 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediInformativaPSP(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoPSP", targetNamespace = "")
-        java.lang.String identificativoPSP,
+        String identificativoPSP,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "xmlInformativa", targetNamespace = "")
@@ -61,15 +61,15 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediQuadraturaPA(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoFlusso", targetNamespace = "")
-        java.lang.String identificativoFlusso,
+        String identificativoFlusso,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "xmlQuadratura", targetNamespace = "")
@@ -83,23 +83,23 @@ public interface PagamentiTelematiciRPT {
     public void nodoInviaRichiestaStorno(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoUnivocoVersamento", targetNamespace = "")
-        java.lang.String identificativoUnivocoVersamento,
+        String identificativoUnivocoVersamento,
         @WebParam(name = "codiceContestoPagamento", targetNamespace = "")
-        java.lang.String codiceContestoPagamento,
+        String codiceContestoPagamento,
         @WebParam(name = "rr", targetNamespace = "")
         byte[] rr,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "esito", targetNamespace = "")
-        javax.xml.ws.Holder<java.lang.String> esito
+        javax.xml.ws.Holder<String> esito
     );
 
     @WebMethod(action = "nodoChiediElencoFlussiRendicontazione")
@@ -109,15 +109,15 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediElencoFlussiRendicontazione(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoPSP", targetNamespace = "")
-        java.lang.String identificativoPSP,
+        String identificativoPSP,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "elencoFlussiRendicontazione", targetNamespace = "")
@@ -131,23 +131,23 @@ public interface PagamentiTelematiciRPT {
     public void nodoInviaRispostaRevoca(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoUnivocoVersamento", targetNamespace = "")
-        java.lang.String identificativoUnivocoVersamento,
+        String identificativoUnivocoVersamento,
         @WebParam(name = "codiceContestoPagamento", targetNamespace = "")
-        java.lang.String codiceContestoPagamento,
+        String codiceContestoPagamento,
         @WebParam(name = "er", targetNamespace = "")
         byte[] er,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "esito", targetNamespace = "")
-        javax.xml.ws.Holder<java.lang.String> esito
+        javax.xml.ws.Holder<String> esito
     );
 
     @WebMethod(action = "nodoChiediCopiaRT")
@@ -157,21 +157,21 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediCopiaRT(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoUnivocoVersamento", targetNamespace = "")
-        java.lang.String identificativoUnivocoVersamento,
+        String identificativoUnivocoVersamento,
         @WebParam(name = "codiceContestoPagamento", targetNamespace = "")
-        java.lang.String codiceContestoPagamento,
+        String codiceContestoPagamento,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "tipoFirma", targetNamespace = "")
-        javax.xml.ws.Holder<java.lang.String> tipoFirma,
+        javax.xml.ws.Holder<String> tipoFirma,
         @WebParam(mode = WebParam.Mode.OUT, name = "rt", targetNamespace = "")
         javax.xml.ws.Holder<javax.activation.DataHandler> rt
     );
@@ -195,13 +195,13 @@ public interface PagamentiTelematiciRPT {
     public void nodoPAChiediInformativaPA(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "xmlInformativa", targetNamespace = "")
@@ -215,17 +215,17 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediFlussoRendicontazione(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoPSP", targetNamespace = "")
-        java.lang.String identificativoPSP,
+        String identificativoPSP,
         @WebParam(name = "identificativoFlusso", targetNamespace = "")
-        java.lang.String identificativoFlusso,
+        String identificativoFlusso,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "xmlRendicontazione", targetNamespace = "")
@@ -239,13 +239,13 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediElencoQuadraturePA(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "listaQuadrature", targetNamespace = "")
@@ -259,13 +259,13 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediListaPendentiRPT(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "rangeDa", targetNamespace = "")
         javax.xml.datatype.XMLGregorianCalendar rangeDa,
         @WebParam(name = "rangeA", targetNamespace = "")
@@ -285,27 +285,27 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediSceltaWISP(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "keyPA", targetNamespace = "")
-        java.lang.String keyPA,
+        String keyPA,
         @WebParam(name = "keyWISP", targetNamespace = "")
-        java.lang.String keyWISP,
+        String keyWISP,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "effettuazioneScelta", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.StEffettuazioneScelta> effettuazioneScelta,
         @WebParam(mode = WebParam.Mode.OUT, name = "identificativoPSP", targetNamespace = "")
-        javax.xml.ws.Holder<java.lang.String> identificativoPSP,
+        javax.xml.ws.Holder<String> identificativoPSP,
         @WebParam(mode = WebParam.Mode.OUT, name = "identificativoIntermediarioPSP", targetNamespace = "")
-        javax.xml.ws.Holder<java.lang.String> identificativoIntermediarioPSP,
+        javax.xml.ws.Holder<String> identificativoIntermediarioPSP,
         @WebParam(mode = WebParam.Mode.OUT, name = "identificativoCanale", targetNamespace = "")
-        javax.xml.ws.Holder<java.lang.String> identificativoCanale,
+        javax.xml.ws.Holder<String> identificativoCanale,
         @WebParam(mode = WebParam.Mode.OUT, name = "tipoVersamento", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.StTipoVersamento> tipoVersamento
     );
@@ -317,17 +317,17 @@ public interface PagamentiTelematiciRPT {
     public void nodoChiediStatoRPT(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "password", targetNamespace = "")
-        java.lang.String password,
+        String password,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoUnivocoVersamento", targetNamespace = "")
-        java.lang.String identificativoUnivocoVersamento,
+        String identificativoUnivocoVersamento,
         @WebParam(name = "codiceContestoPagamento", targetNamespace = "")
-        java.lang.String codiceContestoPagamento,
+        String codiceContestoPagamento,
         @WebParam(mode = WebParam.Mode.OUT, name = "fault", targetNamespace = "")
         javax.xml.ws.Holder<nodo.gov.telematici.pagamenti.ws.FaultBean> fault,
         @WebParam(mode = WebParam.Mode.OUT, name = "esito", targetNamespace = "")

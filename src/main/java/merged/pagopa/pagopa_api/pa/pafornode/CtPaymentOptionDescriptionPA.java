@@ -20,10 +20,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="amount" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stAmount"/&gt;
+ *         &lt;element name="amount" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stAmount"/&gt;
  *         &lt;element name="options" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stAmountOption"/&gt;
- *         &lt;element name="dueDate" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stISODate" minOccurs="0"/&gt;
- *         &lt;element name="detailDescription" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140" minOccurs="0"/&gt;
+ *         &lt;element name="dueDate" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stISODate" minOccurs="0"/&gt;
+ *         &lt;element name="detailDescription" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140" minOccurs="0"/&gt;
  *         &lt;element name="allCCP" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -54,7 +54,7 @@ public class CtPaymentOptionDescriptionPA {
     protected boolean allCCP;
 
     /**
-     * Recupera il valore della proprieta amount.
+     * Recupera il valore della proprietà amount.
      * 
      * @return
      *     possible object is
@@ -66,7 +66,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Imposta il valore della proprieta amount.
+     * Imposta il valore della proprietà amount.
      * 
      * @param value
      *     allowed object is
@@ -78,7 +78,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Recupera il valore della proprieta options.
+     * Recupera il valore della proprietà options.
      * 
      * @return
      *     possible object is
@@ -90,7 +90,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Imposta il valore della proprieta options.
+     * Imposta il valore della proprietà options.
      * 
      * @param value
      *     allowed object is
@@ -102,7 +102,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Recupera il valore della proprieta dueDate.
+     * Recupera il valore della proprietà dueDate.
      * 
      * @return
      *     possible object is
@@ -114,7 +114,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Imposta il valore della proprieta dueDate.
+     * Imposta il valore della proprietà dueDate.
      * 
      * @param value
      *     allowed object is
@@ -126,7 +126,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Recupera il valore della proprieta detailDescription.
+     * Recupera il valore della proprietà detailDescription.
      * 
      * @return
      *     possible object is
@@ -138,7 +138,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Imposta il valore della proprieta detailDescription.
+     * Imposta il valore della proprietà detailDescription.
      * 
      * @param value
      *     allowed object is
@@ -150,7 +150,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Recupera il valore della proprieta allCCP.
+     * Recupera il valore della proprietà allCCP.
      * 
      */
     public boolean isAllCCP() {
@@ -158,7 +158,7 @@ public class CtPaymentOptionDescriptionPA {
     }
 
     /**
-     * Imposta il valore della proprieta allCCP.
+     * Imposta il valore della proprietà allCCP.
      * 
      */
     public void setAllCCP(boolean value) {

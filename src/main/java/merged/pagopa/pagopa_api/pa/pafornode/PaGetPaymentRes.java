@@ -7,6 +7,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
+ * 
+ * Its a response to `paGetPaymentReq` and contains :
+ * 
+ * - `outcome` and _optional_ `fault` (_see below to details_)
+ * - all `data` related to payment (_see below to details_)
+ * 
+ *       
+ * 
  * <p>Classe Java per paGetPaymentRes complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -14,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="paGetPaymentRes"&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}ctResponse"&gt;
+ *     &lt;extension base="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctResponse"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="data" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctPaymentPA" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
@@ -36,7 +44,7 @@ public class PaGetPaymentRes
     protected CtPaymentPA data;
 
     /**
-     * Recupera il valore della proprieta data.
+     * Recupera il valore della proprietà data.
      * 
      * @return
      *     possible object is
@@ -48,7 +56,7 @@ public class PaGetPaymentRes
     }
 
     /**
-     * Imposta il valore della proprieta data.
+     * Imposta il valore della proprietà data.
      * 
      * @param value
      *     allowed object is

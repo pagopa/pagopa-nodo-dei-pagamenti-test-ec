@@ -10,6 +10,28 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
+ * 
+ * Structure containing the details of possible tranfer payments.
+ * 
+ * Currently set at 5 eligible payments per single position.
+ * 
+ * Where each `transfer` items contains :
+ * 
+ * - `idTransfer` : index of the list (from `1` to `5`) 
+ * - `transferAmount` : amount 
+ * - `fiscalCodePA` : Tax code of the public administration
+ * - `IBAN` : contains the IBAN of the account to be credited
+ * - `remittanceInformation` : reason for payment (_alias_ `causaleVersamento`)
+ * - `transferCategory` : contains taxonomic code, composed by `Codice tipo Ente Creditore`+`Progressivo macro area`+`Codice tipologia servizio`+`Motivo Giuridico` ( ex. `0101002IM` ) 
+ * | Segment                     | Regex                       |Example |
+ * |-----------------------------|-----------------------------|--------|
+ * |Codice tipo Ente Creditore   | `\d{2}`                     | 01     |
+ * |Progressivo macro area       | `\d{2}`                     | 01     |
+ * |Codice tipologia servizio    | `\d{2}`                     | 002    |
+ * |Motivo Giuridico             | `\w{2}`                     | IM     |
+ * 
+ *       
+ * 
  * <p>Classe Java per ctTransferListPA complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.

@@ -19,8 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="outcome" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stOutcome"/&gt;
- *         &lt;element name="fault" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}ctFaultBean" minOccurs="0"/&gt;
+ *         &lt;element name="outcome" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stOutcome"/&gt;
+ *         &lt;element name="fault" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctFaultBean" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -30,17 +30,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ctResponse", namespace = "http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/", propOrder = {
+@XmlType(name = "ctResponse", propOrder = {
     "outcome",
     "fault"
 })
 @XmlSeeAlso({
     PaVerifyPaymentNoticeRes.class,
     PaGetPaymentRes.class,
-    PaSendRTRes.class,
-    PaDemandPaymentNoticeResponse.class,
-    PaGetPaymentV2Response.class,
-    PaSendRTV2Response.class
+    PaSendRTRes.class
 })
 public class CtResponse {
 
@@ -50,7 +47,7 @@ public class CtResponse {
     protected CtFaultBean fault;
 
     /**
-     * Recupera il valore della proprieta outcome.
+     * Recupera il valore della proprietà outcome.
      * 
      * @return
      *     possible object is
@@ -62,7 +59,7 @@ public class CtResponse {
     }
 
     /**
-     * Imposta il valore della proprieta outcome.
+     * Imposta il valore della proprietà outcome.
      * 
      * @param value
      *     allowed object is
@@ -74,7 +71,7 @@ public class CtResponse {
     }
 
     /**
-     * Recupera il valore della proprieta fault.
+     * Recupera il valore della proprietà fault.
      * 
      * @return
      *     possible object is
@@ -86,7 +83,7 @@ public class CtResponse {
     }
 
     /**
-     * Imposta il valore della proprieta fault.
+     * Imposta il valore della proprietà fault.
      * 
      * @param value
      *     allowed object is

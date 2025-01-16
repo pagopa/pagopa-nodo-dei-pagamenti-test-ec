@@ -28,11 +28,11 @@ public interface PagamentiTelematiciRT {
     public rt.gov.telematici.pagamenti.ws.TipoInviaRichiestaRevocaRisposta paaInviaRichiestaRevoca(
 
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoUnivocoVersamento", targetNamespace = "")
-        java.lang.String identificativoUnivocoVersamento,
+        String identificativoUnivocoVersamento,
         @WebParam(name = "codiceContestoPagamento", targetNamespace = "")
-        java.lang.String codiceContestoPagamento,
+        String codiceContestoPagamento,
         @WebParam(name = "rr", targetNamespace = "")
         byte[] rr
     );
@@ -57,15 +57,15 @@ public interface PagamentiTelematiciRT {
     public rt.gov.telematici.pagamenti.ws.TipoInviaEsitoStornoRisposta paaInviaEsitoStorno(
 
         @WebParam(name = "identificativoIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoIntermediarioPA,
+        String identificativoIntermediarioPA,
         @WebParam(name = "identificativoStazioneIntermediarioPA", targetNamespace = "")
-        java.lang.String identificativoStazioneIntermediarioPA,
+        String identificativoStazioneIntermediarioPA,
         @WebParam(name = "identificativoDominio", targetNamespace = "")
-        java.lang.String identificativoDominio,
+        String identificativoDominio,
         @WebParam(name = "identificativoUnivocoVersamento", targetNamespace = "")
-        java.lang.String identificativoUnivocoVersamento,
+        String identificativoUnivocoVersamento,
         @WebParam(name = "codiceContestoPagamento", targetNamespace = "")
-        java.lang.String codiceContestoPagamento,
+        String codiceContestoPagamento,
         @WebParam(name = "er", targetNamespace = "")
         byte[] er
     );

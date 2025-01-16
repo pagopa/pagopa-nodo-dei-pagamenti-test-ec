@@ -7,6 +7,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
+ * 
+ * Its a response to `paSendRTReq` and contains :
+ * 
+ * - `outcome` and _optional_ `fault` (_see below to details_)
+ * 
+ *       
+ * 
  * <p>Classe Java per paSendRTRes complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -14,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="paSendRTRes"&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}ctResponse"&gt;
+ *     &lt;extension base="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctResponse"&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;

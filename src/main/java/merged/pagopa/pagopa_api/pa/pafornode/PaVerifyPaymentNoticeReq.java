@@ -8,6 +8,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
+ * 
+ * The `paVerifyPaymentNotice` request contains :
+ * - `idPA` : alphanumeric field containing the tax code of the structure sending the payment request.
+ * - `idBrokerPA` : identification of subject that operates as an intermediary for the PA.
+ * - `idStation` : identification of the station of the PA into pagoPa system.
+ * - `qrCode` : is the union of `fiscalCode` and `noticeNumber`
+ * 
+ *       
+ * 
  * <p>Classe Java per paVerifyPaymentNoticeReq complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -17,9 +26,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="idPA" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
- *         &lt;element name="idBrokerPA" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
- *         &lt;element name="idStation" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
+ *         &lt;element name="idPA" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
+ *         &lt;element name="idBrokerPA" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
+ *         &lt;element name="idStation" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
  *         &lt;element name="qrCode" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctQrCode"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -48,7 +57,7 @@ public class PaVerifyPaymentNoticeReq {
     protected CtQrCode qrCode;
 
     /**
-     * Recupera il valore della proprieta idPA.
+     * Recupera il valore della proprietà idPA.
      * 
      * @return
      *     possible object is
@@ -60,7 +69,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Imposta il valore della proprieta idPA.
+     * Imposta il valore della proprietà idPA.
      * 
      * @param value
      *     allowed object is
@@ -72,7 +81,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Recupera il valore della proprieta idBrokerPA.
+     * Recupera il valore della proprietà idBrokerPA.
      * 
      * @return
      *     possible object is
@@ -84,7 +93,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Imposta il valore della proprieta idBrokerPA.
+     * Imposta il valore della proprietà idBrokerPA.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +105,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Recupera il valore della proprieta idStation.
+     * Recupera il valore della proprietà idStation.
      * 
      * @return
      *     possible object is
@@ -108,7 +117,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Imposta il valore della proprieta idStation.
+     * Imposta il valore della proprietà idStation.
      * 
      * @param value
      *     allowed object is
@@ -120,7 +129,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Recupera il valore della proprieta qrCode.
+     * Recupera il valore della proprietà qrCode.
      * 
      * @return
      *     possible object is
@@ -132,7 +141,7 @@ public class PaVerifyPaymentNoticeReq {
     }
 
     /**
-     * Imposta il valore della proprieta qrCode.
+     * Imposta il valore della proprietà qrCode.
      * 
      * @param value
      *     allowed object is

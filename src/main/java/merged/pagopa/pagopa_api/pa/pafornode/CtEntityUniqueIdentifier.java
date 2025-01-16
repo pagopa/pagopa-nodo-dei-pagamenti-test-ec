@@ -42,7 +42,7 @@ public class CtEntityUniqueIdentifier {
     protected String entityUniqueIdentifierValue;
 
     /**
-     * Recupera il valore della proprieta entityUniqueIdentifierType.
+     * Recupera il valore della proprietà entityUniqueIdentifierType.
      * 
      * @return
      *     possible object is
@@ -54,7 +54,7 @@ public class CtEntityUniqueIdentifier {
     }
 
     /**
-     * Imposta il valore della proprieta entityUniqueIdentifierType.
+     * Imposta il valore della proprietà entityUniqueIdentifierType.
      * 
      * @param value
      *     allowed object is
@@ -66,7 +66,7 @@ public class CtEntityUniqueIdentifier {
     }
 
     /**
-     * Recupera il valore della proprieta entityUniqueIdentifierValue.
+     * Recupera il valore della proprietà entityUniqueIdentifierValue.
      * 
      * @return
      *     possible object is
@@ -78,7 +78,7 @@ public class CtEntityUniqueIdentifier {
     }
 
     /**
-     * Imposta il valore della proprieta entityUniqueIdentifierValue.
+     * Imposta il valore della proprietà entityUniqueIdentifierValue.
      * 
      * @param value
      *     allowed object is

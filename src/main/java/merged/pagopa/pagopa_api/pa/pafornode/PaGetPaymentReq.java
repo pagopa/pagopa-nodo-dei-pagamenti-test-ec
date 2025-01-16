@@ -11,6 +11,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
+ * 
+ * The `paVerifyPaymentNotice` request contains :
+ * - `idPA` : alphanumeric field containing the tax code of the structure sending the payment request.
+ * - `idBrokerPA` : identification of subject that operates as an intermediary for the PA.
+ * - `idStation` : identification of the station of the PA into pagoPa system.
+ * - `qrCode` : is the union of `fiscalCode` and `noticeNumber`
+ * - `amount` : amount of the payment
+ * - `paymentNote` : details description of the payment
+ * - `transferType` : _specific only for POSTE Italiane_
+ * - `dueDate` : indicates the expiration payment date according to the ISO 8601 format `[YYYY]-[MM]-[DD]`.
+ *       
+ * 
  * <p>Classe Java per paGetPaymentReq complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -20,14 +32,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="idPA" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
- *         &lt;element name="idBrokerPA" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
- *         &lt;element name="idStation" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
+ *         &lt;element name="idPA" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
+ *         &lt;element name="idBrokerPA" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
+ *         &lt;element name="idStation" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
  *         &lt;element name="qrCode" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctQrCode"/&gt;
- *         &lt;element name="amount" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stAmount" minOccurs="0"/&gt;
+ *         &lt;element name="amount" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stAmount" minOccurs="0"/&gt;
  *         &lt;element name="paymentNote" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText210" minOccurs="0"/&gt;
  *         &lt;element name="transferType" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stTransferType" minOccurs="0"/&gt;
- *         &lt;element name="dueDate" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stISODate" minOccurs="0"/&gt;
+ *         &lt;element name="dueDate" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stISODate" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -65,7 +77,7 @@ public class PaGetPaymentReq {
     protected XMLGregorianCalendar dueDate;
 
     /**
-     * Recupera il valore della proprieta idPA.
+     * Recupera il valore della proprietà idPA.
      * 
      * @return
      *     possible object is
@@ -77,7 +89,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta idPA.
+     * Imposta il valore della proprietà idPA.
      * 
      * @param value
      *     allowed object is
@@ -89,7 +101,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta idBrokerPA.
+     * Recupera il valore della proprietà idBrokerPA.
      * 
      * @return
      *     possible object is
@@ -101,7 +113,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta idBrokerPA.
+     * Imposta il valore della proprietà idBrokerPA.
      * 
      * @param value
      *     allowed object is
@@ -113,7 +125,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta idStation.
+     * Recupera il valore della proprietà idStation.
      * 
      * @return
      *     possible object is
@@ -125,7 +137,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta idStation.
+     * Imposta il valore della proprietà idStation.
      * 
      * @param value
      *     allowed object is
@@ -137,7 +149,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta qrCode.
+     * Recupera il valore della proprietà qrCode.
      * 
      * @return
      *     possible object is
@@ -149,7 +161,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta qrCode.
+     * Imposta il valore della proprietà qrCode.
      * 
      * @param value
      *     allowed object is
@@ -161,7 +173,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta amount.
+     * Recupera il valore della proprietà amount.
      * 
      * @return
      *     possible object is
@@ -173,7 +185,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta amount.
+     * Imposta il valore della proprietà amount.
      * 
      * @param value
      *     allowed object is
@@ -185,7 +197,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta paymentNote.
+     * Recupera il valore della proprietà paymentNote.
      * 
      * @return
      *     possible object is
@@ -197,7 +209,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta paymentNote.
+     * Imposta il valore della proprietà paymentNote.
      * 
      * @param value
      *     allowed object is
@@ -209,7 +221,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta transferType.
+     * Recupera il valore della proprietà transferType.
      * 
      * @return
      *     possible object is
@@ -221,7 +233,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta transferType.
+     * Imposta il valore della proprietà transferType.
      * 
      * @param value
      *     allowed object is
@@ -233,7 +245,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Recupera il valore della proprieta dueDate.
+     * Recupera il valore della proprietà dueDate.
      * 
      * @return
      *     possible object is
@@ -245,7 +257,7 @@ public class PaGetPaymentReq {
     }
 
     /**
-     * Imposta il valore della proprieta dueDate.
+     * Imposta il valore della proprietà dueDate.
      * 
      * @param value
      *     allowed object is

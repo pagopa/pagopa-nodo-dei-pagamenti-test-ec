@@ -11,6 +11,23 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
+ * 
+ * Its contains all payment information :
+ * 
+ * - `creditorReferenceId` : its equal to **IUV** _Identificativo Univoco Versamento_ 
+ * - `paymentAmount` : amount, it must be equal to the sums of `transferAmount` present in the `transferList`
+ * - `dueDate` : indicates the expiration payment date according to the ISO 8601 format `[YYYY]-[MM]-[DD]`.
+ * - `retentionDate` : indicates the retention payment date according to the ISO 8601 format `[YYYY]-[MM]-[DD]`.
+ * - `lastPayment` : boolean flag used for in installment payments 
+ * - `description` : free text available to describe the payment reasons
+ * - `companyName` : Public Administration full name
+ * - `officeName` : Public Admninistration Department Name
+ * - `debtor` : identifies the debtor to whom the debt position refers
+ * - `transferList` : the list of all available transfer information (_see below to details_)
+ * - `metadata` : (_see below to details_)
+ * 
+ *     
+ * 
  * <p>Classe Java per ctPaymentPA complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -20,17 +37,17 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="creditorReferenceId" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35"/&gt;
+ *         &lt;element name="creditorReferenceId" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35"/&gt;
  *         &lt;element name="paymentAmount" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stAmountNotZero"/&gt;
- *         &lt;element name="dueDate" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stISODate"/&gt;
+ *         &lt;element name="dueDate" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stISODate"/&gt;
  *         &lt;element name="retentionDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="lastPayment" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
- *         &lt;element name="description" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140"/&gt;
- *         &lt;element name="companyName" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140" minOccurs="0"/&gt;
- *         &lt;element name="officeName" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140" minOccurs="0"/&gt;
+ *         &lt;element name="description" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140"/&gt;
+ *         &lt;element name="companyName" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140" minOccurs="0"/&gt;
+ *         &lt;element name="officeName" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140" minOccurs="0"/&gt;
  *         &lt;element name="debtor" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctSubject"/&gt;
  *         &lt;element name="transferList" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctTransferListPA"/&gt;
- *         &lt;element name="metadata" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}ctMetadata" minOccurs="0"/&gt;
+ *         &lt;element name="metadata" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctMetadata" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -76,7 +93,7 @@ public class CtPaymentPA {
     protected CtMetadata metadata;
 
     /**
-     * Recupera il valore della proprieta creditorReferenceId.
+     * Recupera il valore della proprietà creditorReferenceId.
      * 
      * @return
      *     possible object is
@@ -88,7 +105,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta creditorReferenceId.
+     * Imposta il valore della proprietà creditorReferenceId.
      * 
      * @param value
      *     allowed object is
@@ -100,7 +117,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta paymentAmount.
+     * Recupera il valore della proprietà paymentAmount.
      * 
      * @return
      *     possible object is
@@ -112,7 +129,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta paymentAmount.
+     * Imposta il valore della proprietà paymentAmount.
      * 
      * @param value
      *     allowed object is
@@ -124,7 +141,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta dueDate.
+     * Recupera il valore della proprietà dueDate.
      * 
      * @return
      *     possible object is
@@ -136,7 +153,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta dueDate.
+     * Imposta il valore della proprietà dueDate.
      * 
      * @param value
      *     allowed object is
@@ -148,7 +165,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta retentionDate.
+     * Recupera il valore della proprietà retentionDate.
      * 
      * @return
      *     possible object is
@@ -160,7 +177,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta retentionDate.
+     * Imposta il valore della proprietà retentionDate.
      * 
      * @param value
      *     allowed object is
@@ -172,7 +189,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta lastPayment.
+     * Recupera il valore della proprietà lastPayment.
      * 
      * @return
      *     possible object is
@@ -184,7 +201,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta lastPayment.
+     * Imposta il valore della proprietà lastPayment.
      * 
      * @param value
      *     allowed object is
@@ -196,7 +213,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta description.
+     * Recupera il valore della proprietà description.
      * 
      * @return
      *     possible object is
@@ -208,7 +225,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta description.
+     * Imposta il valore della proprietà description.
      * 
      * @param value
      *     allowed object is
@@ -220,7 +237,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta companyName.
+     * Recupera il valore della proprietà companyName.
      * 
      * @return
      *     possible object is
@@ -232,7 +249,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta companyName.
+     * Imposta il valore della proprietà companyName.
      * 
      * @param value
      *     allowed object is
@@ -244,7 +261,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta officeName.
+     * Recupera il valore della proprietà officeName.
      * 
      * @return
      *     possible object is
@@ -256,7 +273,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta officeName.
+     * Imposta il valore della proprietà officeName.
      * 
      * @param value
      *     allowed object is
@@ -268,7 +285,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta debtor.
+     * Recupera il valore della proprietà debtor.
      * 
      * @return
      *     possible object is
@@ -280,7 +297,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta debtor.
+     * Imposta il valore della proprietà debtor.
      * 
      * @param value
      *     allowed object is
@@ -292,7 +309,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta transferList.
+     * Recupera il valore della proprietà transferList.
      * 
      * @return
      *     possible object is
@@ -304,7 +321,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta transferList.
+     * Imposta il valore della proprietà transferList.
      * 
      * @param value
      *     allowed object is
@@ -316,7 +333,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Recupera il valore della proprieta metadata.
+     * Recupera il valore della proprietà metadata.
      * 
      * @return
      *     possible object is
@@ -328,7 +345,7 @@ public class CtPaymentPA {
     }
 
     /**
-     * Imposta il valore della proprieta metadata.
+     * Imposta il valore della proprietà metadata.
      * 
      * @param value
      *     allowed object is

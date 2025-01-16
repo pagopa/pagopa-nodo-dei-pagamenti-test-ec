@@ -8,6 +8,21 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
+ * 
+ * Contains all data for the subject of payment :
+ * 
+ * - `uniqueIdentifier` : (_see below to details_)
+ * - `fullName` : name of the subject
+ * - `streetName` : street name
+ * - `civicNumber` : building number
+ * - `postalCode` : postal code
+ * - `city` : town name
+ * - `stateProvinceRegion` : country subdivision
+ * - `country` : country name
+ * - `e-mail` : remittance location electronic address
+ * 
+ *      
+ * 
  * <p>Classe Java per ctSubject complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -18,14 +33,14 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="uniqueIdentifier" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctEntityUniqueIdentifier"/&gt;
- *         &lt;element name="fullName" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText70"/&gt;
- *         &lt;element name="streetName" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText70" minOccurs="0"/&gt;
- *         &lt;element name="civicNumber" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText16" minOccurs="0"/&gt;
- *         &lt;element name="postalCode" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText16" minOccurs="0"/&gt;
- *         &lt;element name="city" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35" minOccurs="0"/&gt;
- *         &lt;element name="stateProvinceRegion" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText35" minOccurs="0"/&gt;
- *         &lt;element name="country" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stNazioneProvincia" minOccurs="0"/&gt;
- *         &lt;element name="e-mail" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stEMail" minOccurs="0"/&gt;
+ *         &lt;element name="fullName" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText70"/&gt;
+ *         &lt;element name="streetName" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText70" minOccurs="0"/&gt;
+ *         &lt;element name="civicNumber" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText16" minOccurs="0"/&gt;
+ *         &lt;element name="postalCode" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText16" minOccurs="0"/&gt;
+ *         &lt;element name="city" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35" minOccurs="0"/&gt;
+ *         &lt;element name="stateProvinceRegion" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText35" minOccurs="0"/&gt;
+ *         &lt;element name="country" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stNazioneProvincia" minOccurs="0"/&gt;
+ *         &lt;element name="e-mail" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stEMail" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -62,7 +77,7 @@ public class CtSubject {
     protected String eMail;
 
     /**
-     * Recupera il valore della proprieta uniqueIdentifier.
+     * Recupera il valore della proprietà uniqueIdentifier.
      * 
      * @return
      *     possible object is
@@ -74,7 +89,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta uniqueIdentifier.
+     * Imposta il valore della proprietà uniqueIdentifier.
      * 
      * @param value
      *     allowed object is
@@ -86,7 +101,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta fullName.
+     * Recupera il valore della proprietà fullName.
      * 
      * @return
      *     possible object is
@@ -98,7 +113,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta fullName.
+     * Imposta il valore della proprietà fullName.
      * 
      * @param value
      *     allowed object is
@@ -110,7 +125,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta streetName.
+     * Recupera il valore della proprietà streetName.
      * 
      * @return
      *     possible object is
@@ -122,7 +137,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta streetName.
+     * Imposta il valore della proprietà streetName.
      * 
      * @param value
      *     allowed object is
@@ -134,7 +149,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta civicNumber.
+     * Recupera il valore della proprietà civicNumber.
      * 
      * @return
      *     possible object is
@@ -146,7 +161,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta civicNumber.
+     * Imposta il valore della proprietà civicNumber.
      * 
      * @param value
      *     allowed object is
@@ -158,7 +173,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta postalCode.
+     * Recupera il valore della proprietà postalCode.
      * 
      * @return
      *     possible object is
@@ -170,7 +185,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta postalCode.
+     * Imposta il valore della proprietà postalCode.
      * 
      * @param value
      *     allowed object is
@@ -182,7 +197,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta city.
+     * Recupera il valore della proprietà city.
      * 
      * @return
      *     possible object is
@@ -194,7 +209,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta city.
+     * Imposta il valore della proprietà city.
      * 
      * @param value
      *     allowed object is
@@ -206,7 +221,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta stateProvinceRegion.
+     * Recupera il valore della proprietà stateProvinceRegion.
      * 
      * @return
      *     possible object is
@@ -218,7 +233,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta stateProvinceRegion.
+     * Imposta il valore della proprietà stateProvinceRegion.
      * 
      * @param value
      *     allowed object is
@@ -230,7 +245,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta country.
+     * Recupera il valore della proprietà country.
      * 
      * @return
      *     possible object is
@@ -242,7 +257,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta country.
+     * Imposta il valore della proprietà country.
      * 
      * @param value
      *     allowed object is
@@ -254,7 +269,7 @@ public class CtSubject {
     }
 
     /**
-     * Recupera il valore della proprieta eMail.
+     * Recupera il valore della proprietà eMail.
      * 
      * @return
      *     possible object is
@@ -266,7 +281,7 @@ public class CtSubject {
     }
 
     /**
-     * Imposta il valore della proprieta eMail.
+     * Imposta il valore della proprietà eMail.
      * 
      * @param value
      *     allowed object is
