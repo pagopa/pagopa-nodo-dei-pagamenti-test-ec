@@ -36,12 +36,12 @@ basemock: &basemock
   securityContext:
     readOnlyRootFilesystem: false
     allowPrivilegeEscalation: true
-#    capabilities:
-#      drop:
-#        - all
-#  tmpFolder:
-#    name: tmp
-#    mountPath: /tmp
+    #    capabilities:
+    #      drop:
+    #        - all
+    #  tmpFolder:
+    #    name: tmp
+    #    mountPath: /tmp
   resources:
     requests:
       memory: "1Gi"
@@ -86,7 +86,6 @@ basemock: &basemock
                 operator: In
                 values:
                   - "true"
-
 mockecprf:
   !!merge <<: *basemock
   ingress:
@@ -99,3 +98,6 @@ mockecprf:
       nginx.ingress.kubernetes.io/proxy-read-timeout: "130"
     proxyBodySize: 100m
     rewriteTarget: /$2
+microservice-chart:
+  image:
+    tag: 1.1.1-1

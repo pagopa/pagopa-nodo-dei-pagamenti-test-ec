@@ -109,3 +109,6 @@
 #       nginx.ingress.kubernetes.io/proxy-read-timeout: "130"
 #     proxyBodySize: 100m
 #     rewriteTarget: /$2
+microservice-chart:
+  image:
+    tag: 1.1.1-1
