@@ -39,6 +39,9 @@ basemock: &basemock
     capabilities:
       drop:
         - all
+  tmpFolder:
+    name: tmp
+    mountPath: /tmp
   resources:
     requests:
       memory: "1Gi"
