@@ -10,7 +10,7 @@ basemock: &basemock
       maxSurge: 1
   image:
     repository: pagopaucommonacr.azurecr.io/pagopanododeipagamentitestec
-    tag: "0.0.1"
+    tag: "latest"
     pullPolicy: Always
   readinessProbe:
     handlerType: tcpSocket
