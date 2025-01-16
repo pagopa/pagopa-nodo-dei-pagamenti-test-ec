@@ -9,7 +9,7 @@ parameters:
   - name: ENV
     displayName: Target Environment
     type: string
-    default: dev
+    default: prf
     values:
       - dev
       - uat
