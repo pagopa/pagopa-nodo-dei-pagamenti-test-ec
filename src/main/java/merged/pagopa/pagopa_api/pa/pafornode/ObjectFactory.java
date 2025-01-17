@@ -30,6 +30,9 @@ public class ObjectFactory {
     private final static QName _PaGetPaymentRes_QNAME = new QName("http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", "paGetPaymentRes");
     private final static QName _PaSendRTReq_QNAME = new QName("http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", "paSendRTReq");
     private final static QName _PaSendRTRes_QNAME = new QName("http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", "paSendRTRes");
+    private final static QName _PaDemandPaymentNoticeRequest_QNAME = new QName("http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", "paDemandPaymentNoticeRequest");
+    private final static QName _PaDemandPaymentNoticeResponse_QNAME = new QName("http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", "paDemandPaymentNoticeResponse");
+
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: it.gov.pagopa.pagopa_api.pa.pafornode
@@ -84,6 +87,22 @@ public class ObjectFactory {
      */
     public PaSendRTRes createPaSendRTRes() {
         return new PaSendRTRes();
+    }
+
+    /**
+     * Create an instance of {@link PaDemandPaymentNoticeRequest }
+     *
+     */
+    public PaDemandPaymentNoticeRequest createPaDemandPaymentNoticeRequest() {
+        return new PaDemandPaymentNoticeRequest();
+    }
+
+    /**
+     * Create an instance of {@link PaDemandPaymentNoticeResponse }
+     *
+     */
+    public PaDemandPaymentNoticeResponse createPaDemandPaymentNoticeResponse() {
+        return new PaDemandPaymentNoticeResponse();
     }
 
     /**
@@ -266,6 +285,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", name = "paSendRTRes")
     public JAXBElement<PaSendRTRes> createPaSendRTRes(PaSendRTRes value) {
         return new JAXBElement<PaSendRTRes>(_PaSendRTRes_QNAME, PaSendRTRes.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaDemandPaymentNoticeRequest }{@code >}}
+     *
+     */
+    @XmlElementDecl(namespace = "http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", name = "paDemandPaymentNoticeRequest")
+    public JAXBElement<PaDemandPaymentNoticeRequest> createPaDemandPaymentNoticeRequest(PaDemandPaymentNoticeRequest value) {
+        return new JAXBElement<PaDemandPaymentNoticeRequest>(_PaDemandPaymentNoticeRequest_QNAME, PaDemandPaymentNoticeRequest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PaDemandPaymentNoticeResponse }{@code >}}
+     *
+     */
+    @XmlElementDecl(namespace = "http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", name = "paDemandPaymentNoticeResponse")
+    public JAXBElement<PaDemandPaymentNoticeResponse> createPaDemandPaymentNoticeResponse(PaDemandPaymentNoticeResponse value) {
+        return new JAXBElement<PaDemandPaymentNoticeResponse>(_PaDemandPaymentNoticeResponse_QNAME, PaDemandPaymentNoticeResponse.class, null, value);
     }
 
 }

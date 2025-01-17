@@ -146,12 +146,13 @@ public class MergedPagamentiTelematiciCCP_I implements MergedPortType {
 
 	@Override
 	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(PaDemandPaymentNoticeRequest requestBody) {
+		String noticeNumber = getRandomNotNum();
 		logger.info("PaDemandPaymentNotice -> wip");
 		PaDemandPaymentNoticeResponse res = new PaDemandPaymentNoticeResponse();
 		res.setOutcome(StOutcome.OK);
 		CtQrCode qrC = new CtQrCode();
 		qrC.setFiscalCode(requestBody.getIdPA());
-		qrC.setNoticeNumber(getRandomNotNum());
+		qrC.setNoticeNumber(noticeNumber);
 		res.setQrCode(qrC);
 		res.setPaymentDescription("PerfTest");
 		res.setFiscalCodePA(requestBody.getIdPA());
