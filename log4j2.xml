@@ -21,8 +21,8 @@
 		</Console>
 	</Appenders>
 	<Loggers>
-		<Logger name="org.eclipse.jetty" level="debug">
-	      <AppenderRef ref="Console"/>
+		<Logger name="org.eclipse.jetty.*" level="debug">
+	      <AppenderRef ref="STDOUT"/>
 	    </Logger>
 		<Root level="${LOG_LEVEL}">
 			<AppenderRef ref="STDOUT" />
