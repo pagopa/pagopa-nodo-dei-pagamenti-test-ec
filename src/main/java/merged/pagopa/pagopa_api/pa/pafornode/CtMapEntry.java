@@ -17,8 +17,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="key" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140"/&gt;
- *         &lt;element name="value" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140"/&gt;
+ *         &lt;element name="key" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140"/&gt;
+ *         &lt;element name="value" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ctMapEntry", namespace = "http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/", propOrder = {
+@XmlType(name = "ctMapEntry", propOrder = {
     "key",
     "value"
 })
@@ -40,7 +40,7 @@ public class CtMapEntry {
     protected String value;
 
     /**
-     * Recupera il valore della proprieta key.
+     * Recupera il valore della proprietà key.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class CtMapEntry {
     }
 
     /**
-     * Imposta il valore della proprieta key.
+     * Imposta il valore della proprietà key.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class CtMapEntry {
     }
 
     /**
-     * Recupera il valore della proprieta value.
+     * Recupera il valore della proprietà value.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class CtMapEntry {
     }
 
     /**
-     * Imposta il valore della proprieta value.
+     * Imposta il valore della proprietà value.
      * 
      * @param value
      *     allowed object is

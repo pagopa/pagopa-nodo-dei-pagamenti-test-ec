@@ -1,5 +1,8 @@
 package pagopa.pagopa_api.pa.pafornode_wsdl;
 
+import merged.pagopa.pagopa_api.pa.pafornode.PaDemandPaymentNoticeRequest;
+import merged.pagopa.pagopa_api.pa.pafornode.PaDemandPaymentNoticeResponse;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -55,4 +58,11 @@ public interface MergedPortType {
 	public merged.pagopa.pagopa_api.pa.pafornode.PaGetPaymentRes paGetPayment(
 
 			@WebParam(partName = "requestBody", name = "paGetPaymentReq", targetNamespace = "http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd") merged.pagopa.pagopa_api.pa.pafornode.PaGetPaymentReq requestBody);
+
+	@WebMethod(action = "paDemandPaymentNotice")
+	@WebResult(name = "paDemandPaymentNoticeResponse", targetNamespace = "http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd", partName = "bodyresponse")
+	public PaDemandPaymentNoticeResponse paDemandPaymentNotice(
+			@WebParam(partName = "bodyrequest", name = "paDemandPaymentNoticeRequest", targetNamespace = "http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd")
+			PaDemandPaymentNoticeRequest bodyrequest
+	);
 }

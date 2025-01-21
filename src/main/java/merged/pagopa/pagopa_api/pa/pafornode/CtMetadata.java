@@ -10,6 +10,11 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
+ * 
+ * Its a _key/value_ store fields for the exclusive use of the PA. 
+ * The data will return in the receipt (`paSendRT`)
+ *       
+ * 
  * <p>Classe Java per ctMetadata complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
@@ -19,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="mapEntry" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}ctMapEntry" maxOccurs="10"/&gt;
+ *         &lt;element name="mapEntry" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}ctMapEntry" maxOccurs="10"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ctMetadata", namespace = "http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/", propOrder = {
+@XmlType(name = "ctMetadata", propOrder = {
     "mapEntry"
 })
 public class CtMetadata {

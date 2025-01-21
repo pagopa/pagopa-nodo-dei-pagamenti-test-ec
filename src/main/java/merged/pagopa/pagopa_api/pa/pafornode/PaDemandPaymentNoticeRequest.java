@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlType;
     "idBrokerPA",
     "idStation",
     "idServizio",
+    "idSoggettoServizio",
     "datiSpecificiServizioRequest"
 })
 public class PaDemandPaymentNoticeRequest {
@@ -48,6 +49,10 @@ public class PaDemandPaymentNoticeRequest {
     protected String idStation;
     @XmlElement(required = true)
     protected String idServizio;
+
+    @XmlElement(required = true)
+    protected String idSoggettoServizio;
+
     @XmlElement(required = true)
     protected byte[] datiSpecificiServizioRequest;
 
@@ -137,14 +142,30 @@ public class PaDemandPaymentNoticeRequest {
 
     /**
      * Imposta il valore della proprieta idServizio.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setIdServizio(String value) {
         this.idServizio = value;
+    }
+
+    public String getIdSoggettoServizio() {
+        return idSoggettoServizio;
+    }
+
+    /**
+     * Imposta il valore della proprieta idServizio.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setIdSoggettoServizio(String value) {
+        this.idSoggettoServizio = value;
     }
 
     /**

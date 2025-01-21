@@ -20,11 +20,10 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="idTransfer" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stIdTransfer"/&gt;
  *         &lt;element name="transferAmount" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stAmountNotZero"/&gt;
- *         &lt;element name="fiscalCodePA" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stFiscalCodePA"/&gt;
+ *         &lt;element name="fiscalCodePA" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stFiscalCodePA"/&gt;
  *         &lt;element name="IBAN" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stIBAN"/&gt;
- *         &lt;element name="remittanceInformation" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140"/&gt;
- *         &lt;element name="transferCategory" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}stText140"/&gt;
- *         &lt;element name="metadata" type="{http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/}ctMetadata" minOccurs="0"/&gt;
+ *         &lt;element name="remittanceInformation" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140"/&gt;
+ *         &lt;element name="transferCategory" type="{http://pagopa-api.pagopa.gov.it/pa/paForNode.xsd}stText140"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,8 +39,7 @@ import javax.xml.bind.annotation.XmlType;
     "fiscalCodePA",
     "iban",
     "remittanceInformation",
-    "transferCategory",
-    "metadata"
+    "transferCategory"
 })
 public class CtTransferPA {
 
@@ -56,10 +54,9 @@ public class CtTransferPA {
     protected String remittanceInformation;
     @XmlElement(required = true)
     protected String transferCategory;
-    protected CtMetadata metadata;
 
     /**
-     * Recupera il valore della proprieta idTransfer.
+     * Recupera il valore della proprietà idTransfer.
      * 
      */
     public int getIdTransfer() {
@@ -67,7 +64,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Imposta il valore della proprieta idTransfer.
+     * Imposta il valore della proprietà idTransfer.
      * 
      */
     public void setIdTransfer(int value) {
@@ -75,7 +72,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Recupera il valore della proprieta transferAmount.
+     * Recupera il valore della proprietà transferAmount.
      * 
      * @return
      *     possible object is
@@ -87,7 +84,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Imposta il valore della proprieta transferAmount.
+     * Imposta il valore della proprietà transferAmount.
      * 
      * @param value
      *     allowed object is
@@ -99,7 +96,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Recupera il valore della proprieta fiscalCodePA.
+     * Recupera il valore della proprietà fiscalCodePA.
      * 
      * @return
      *     possible object is
@@ -111,7 +108,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Imposta il valore della proprieta fiscalCodePA.
+     * Imposta il valore della proprietà fiscalCodePA.
      * 
      * @param value
      *     allowed object is
@@ -123,7 +120,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Recupera il valore della proprieta iban.
+     * Recupera il valore della proprietà iban.
      * 
      * @return
      *     possible object is
@@ -135,7 +132,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Imposta il valore della proprieta iban.
+     * Imposta il valore della proprietà iban.
      * 
      * @param value
      *     allowed object is
@@ -147,7 +144,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Recupera il valore della proprieta remittanceInformation.
+     * Recupera il valore della proprietà remittanceInformation.
      * 
      * @return
      *     possible object is
@@ -159,7 +156,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Imposta il valore della proprieta remittanceInformation.
+     * Imposta il valore della proprietà remittanceInformation.
      * 
      * @param value
      *     allowed object is
@@ -171,7 +168,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Recupera il valore della proprieta transferCategory.
+     * Recupera il valore della proprietà transferCategory.
      * 
      * @return
      *     possible object is
@@ -183,7 +180,7 @@ public class CtTransferPA {
     }
 
     /**
-     * Imposta il valore della proprieta transferCategory.
+     * Imposta il valore della proprietà transferCategory.
      * 
      * @param value
      *     allowed object is
@@ -192,30 +189,6 @@ public class CtTransferPA {
      */
     public void setTransferCategory(String value) {
         this.transferCategory = value;
-    }
-
-    /**
-     * Recupera il valore della proprieta metadata.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CtMetadata }
-     *     
-     */
-    public CtMetadata getMetadata() {
-        return metadata;
-    }
-
-    /**
-     * Imposta il valore della proprieta metadata.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CtMetadata }
-     *     
-     */
-    public void setMetadata(CtMetadata value) {
-        this.metadata = value;
     }
 
 }

@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Classe Java per stOutcome.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
- * <p>
  * <pre>
  * &lt;simpleType name="stOutcome"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
@@ -20,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "stOutcome", namespace = "http://pagopa-api.pagopa.gov.it/xsd/common-types/v1.0.0/")
+@XmlType(name = "stOutcome")
 @XmlEnum
 public enum StOutcome {
 

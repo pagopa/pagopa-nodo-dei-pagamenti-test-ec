@@ -1,0 +1,146 @@
+# Only manual triggers
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-22.04'
+
+parameters:
+  - name: ENV
+    displayName: Target Environment
+    type: string
+    default: dev
+    values:
+      - prf
+  - name: SEMVER
+    displayName: "When packing a release, define the version bump to apply. Use only buildNumber or skip for manual deployment"
+    type: string
+    values:
+      - major
+      - minor
+      - patch
+      - buildNumber
+      - skip
+    default: skip
+  - name: "FORCE_REPLACE_DOCKER_IMAGE"
+    displayName: "Force the existing docker image to be replaced"
+    type: boolean
+    default: False
+    values:
+      - False
+      - True
+
+variables:
+  imageRepository: '$(IMAGE_REPOSITORY_NAME)'
+  nameSpace: '$(K8S_NAMESPACE)'
+
+  dockerRegistryServiceConnection: $(UAT_CONTAINER_REGISTRY_SERVICE_CONN)
+  dockerRegistryFqdn: $(UAT_CONTAINER_NAMESPACE)
+  kubernetesServiceConnection: '$(UAT_KUBERNETES_SERVICE_CONN)'
+  poolImage: 'pagopa-uat-linux'
+  appInsightsServiceConn: "$(TF_APPINSIGHTS_SERVICE_CONN_UAT)"
+  appInsightsResourceId: "$(TF_APPINSIGHTS_RESOURCE_ID_UAT)"
+  API_SUBSCRIPTION_KEY: $(UAT_API_SUBSCRIPTION_KEY)
+
+  ${{ if eq(variables['Build.SourceBranchName'], 'merge') }}:
+    sourceBranch: "main" # force to main branch
+  ${{ if ne(variables['Build.SourceBranchName'], 'merge') }}:
+    sourceBranch: ${{ variables['Build.SourceBranchName'] }}
+
+
+
+resources:
+  repositories:
+    - repository: pagopaCommons
+      type: github
+      name: pagopa/azure-pipeline-templates
+      ref: refs/tags/v3.2.0
+      endpoint: 'io-azure-devops-github-ro'
+
+stages:
+
+  # Create a release on GitHub
+  - stage: Release
+    jobs:
+      - job: make_release
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: true
+
+          - template: templates/maven-github-release/template.yaml@pagopaCommons
+            parameters:
+              release_branch: $(sourceBranch)
+              gitEmail: $(GIT_EMAIL)
+              gitUsername: $(GIT_USERNAME)
+              gitHubConnection: $(GITHUB_CONNECTION)
+              semver: "${{ parameters.SEMVER }}"
+
+          - template: templates/maven-github-current-version/template.yaml@pagopaCommons
+
+  # Build and Push Docker Image
+  - stage: Build
+    dependsOn: Release
+    variables:
+      current_version: $[ stageDependencies.Release.make_release.outputs['current_version.value'] ]
+    jobs:
+      - job: "build"
+        steps:
+          - checkout: self
+            persistCredentials: true
+
+          - script: |
+              git checkout $(sourceBranch)
+            displayName: Checkout and update branch
+
+          - template: templates/docker-release/template.yaml@pagopaCommons
+            parameters:
+              CONTAINER_REGISTRY_SERVICE_CONN: $(dockerRegistryServiceConnection)
+              CONTAINER_REGISTRY_FQDN: $(dockerRegistryFqdn)
+              DOCKER_IMAGE_NAME: $(imageRepository)
+              DOCKER_IMAGE_TAG: $(current_version)
+              FORCE_REPLACE_DOCKER_IMAGE: ${{ parameters.FORCE_REPLACE_DOCKER_IMAGE }}
+
+  # Deploy on K8s with Helm
+  - stage: Deploy
+    condition: succeeded('Build')
+    dependsOn:
+      - Release
+      - Build
+    variables:
+      deploy_version: $[ stageDependencies.Release.make_release.outputs['current_version.value'] ]
+    jobs:
+      - deployment: "deploy"
+        pool:
+          name: $(poolImage)
+        environment: ${{ parameters['ENV'] }}
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                  persistCredentials: true
+
+                - script: |
+                    git checkout $(sourceBranch)
+                  displayName: Checkout and update branch
+
+                - template: templates/helm-microservice-chart-setup/template.yaml@pagopaCommons
+                  parameters:
+                    DEPLOY_VERSION: $(deploy_version)
+
+                - template: templates/helm-microservice-chart-deploy/template.yaml@pagopaCommons
+                  parameters:
+                    DO_DEPLOY: true
+                    ENV: ${{ parameters['ENV'] }}
+                    KUBERNETES_SERVICE_CONN: ${{ variables.kubernetesServiceConnection }}
+                    NAMESPACE: $(nameSpace)
+                    APP_NAME: $(imageRepository)
+                    VALUE_FILE: "helm/values-${{ parameters['ENV'] }}.yaml"
+                    DEPLOY_VERSION: $(deploy_version)
+                    APPINSIGHTS_SERVICE_CONN: ${{ variables.appInsightsServiceConn }}
+                    APPINSIGHTS_RESOURCE_ID: ${{ variables.appInsightsResourceId }}
+                    ARGUMENTS: >-
+                      --set mock-ec-prf-chart.image.tag="$(next_version)$(current_version)"
+                    
+

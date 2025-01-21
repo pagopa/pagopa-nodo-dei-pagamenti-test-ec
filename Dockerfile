@@ -14,12 +14,14 @@ WORKDIR /tmp/
 
 RUN mvn package
 
+RUN mv target/PA_Mock*.jar target/PA_Mock.jar
+
 RUN mv startPAMock.sh target/startPAMock.sh
 
 WORKDIR target
 
 RUN chmod +777 startPAMock.sh
 
-EXPOSE 8484
+EXPOSE 8080
 
 ENTRYPOINT ["/bin/sh", "./startPAMock.sh"]

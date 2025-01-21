@@ -15,7 +15,7 @@ public class MainPA {
 	public static Data d;
 
 	public static void main(String[] args) {
-		logger.info("Starting");
+		logger.info("Starting 9f5dd063375d44d2e524a9289c56abd7e011e796");
 		d = new Data(args);
 
 		logger.debug("Init Services");

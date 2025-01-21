@@ -70,7 +70,7 @@ public class MergedService extends Service {
 
 	/**
 	 *
-	 * @param features A list of {@link javax.xml.ws.WebServiceFeature} to configure
+	 * @param features A list of {@link WebServiceFeature} to configure
 	 *                 on the proxy. Supported features not in the
 	 *                 <code>features</code> parameter will have their default
 	 *                 values.
