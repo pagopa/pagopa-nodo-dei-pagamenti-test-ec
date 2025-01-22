@@ -2,8 +2,8 @@ apiVersion: v2
 name: mock-ec-prf-chart
 description: Mock EC prf
 type: application
-version: 1.3.4-2-mock-ec-prf-embedded
-appVersion: 1.3.4-2-mock-ec-prf-embedded
+version: 1.3.4-3-perf-pagopa
+appVersion: 1.3.4-3-perf-pagopa
 dependencies:
   - name: microservice-chart
     version: 2.4.0
