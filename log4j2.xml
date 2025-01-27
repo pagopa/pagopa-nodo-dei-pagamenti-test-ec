@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
 	<Properties>
-		<Property name="LOG_LEVEL">DEBUG</Property>
+		<Property name="LOG_LEVEL">INFO</Property>
 		<Property name="basePath">logs</Property>
 		<Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %m%n</Property>
 	</Properties>
@@ -21,9 +21,6 @@
 		</Console>
 	</Appenders>
 	<Loggers>
-		<Logger name="org.eclipse.jetty.*" level="debug">
-	      <AppenderRef ref="STDOUT"/>
-	    </Logger>
 		<Root level="${LOG_LEVEL}">
 			<AppenderRef ref="STDOUT" />
 <!-- 			<AppenderRef ref="rollingFile" /> -->
