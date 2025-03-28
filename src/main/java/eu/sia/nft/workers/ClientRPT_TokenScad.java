@@ -75,7 +75,7 @@ public class ClientRPT_TokenScad extends Thread {
 
 	@Override
 	public void run() {
-		logger.info("Started");
+		logger.debug("Started");
 		while (true) {
 			try {
 				ActiveMQTextMessage message = (ActiveMQTextMessage) consumer.receive();

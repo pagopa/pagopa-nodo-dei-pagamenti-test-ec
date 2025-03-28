@@ -107,7 +107,7 @@ public class Data {
 				PAList.add(line);
 			}
 			in.close();
-			logger.info("Number of PA loaded: " + PAList.size());
+			logger.debug("Number of PA loaded: " + PAList.size());
 			if (PAList.size() == 0) {
 				logger.warn("No PA defined, exiting ...");
 				System.exit(0);

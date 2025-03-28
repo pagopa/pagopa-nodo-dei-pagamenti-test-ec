@@ -32,7 +32,7 @@ public class PagamentiTelematiciRT_I implements PagamentiTelematiciRT {
 		esitoPaaInviaRT = new EsitoPaaInviaRT();
 		esitoPaaInviaRT.setEsito("OK");
 		paaInviaRTRisposta.setPaaInviaRTRisposta(esitoPaaInviaRT);
-		logger.info("InviaRT -> " + header.getIdentificativoUnivocoVersamento() + "-" + header.getIdentificativoDominio());
+		logger.debug("InviaRT -> " + header.getIdentificativoUnivocoVersamento() + "-" + header.getIdentificativoDominio());
 		return paaInviaRTRisposta;
 	}
 

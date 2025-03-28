@@ -51,7 +51,7 @@ public class GenerazioneAvvisi_I implements GenerazioneAvvisiMerged {
 		datiPagamento.setCausaleVersamento("Stress Test");
 		esito.setDatiPagamentoPA(datiPagamento);
 		CNA_Response.setPaaChiediNumeroAvvisoRisposta(esito);
-		logger.info("CNA -> " + bodyrichiesta.getIdentificativoPSP() + "-" + header.getIdentificativoDominio());
+		logger.debug("CNA -> " + bodyrichiesta.getIdentificativoPSP() + "-" + header.getIdentificativoDominio());
 		return CNA_Response;
 	}
 

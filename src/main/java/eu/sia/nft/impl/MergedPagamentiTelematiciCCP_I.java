@@ -96,7 +96,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 	public PaSendRTRes paSendRT(PaSendRTReq requestBody) {
 		PaSendRTRes paSendRTRes = new PaSendRTRes();
 		paSendRTRes.setOutcome(StOutcome.OK);
-		logger.info("paSendRT -> " + requestBody.getReceipt().getReceiptId());
+		logger.debug("paSendRT -> " + requestBody.getReceipt().getReceiptId());
 		return paSendRTRes;
 	}
 
@@ -114,7 +114,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 		paVerifyPaymentNoticeRes.setPaymentDescription("Megaditta");
 		paVerifyPaymentNoticeRes.setFiscalCodePA(requestBody.getIdPA());
 		paVerifyPaymentNoticeRes.setCompanyName("italpetrolcemetermotessilfarmometalchimica");
-		logger.info("paVerifyPaymentNotice -> " + requestBody.getQrCode().getNoticeNumber());
+		logger.debug("paVerifyPaymentNotice -> " + requestBody.getQrCode().getNoticeNumber());
 		return paVerifyPaymentNoticeRes;
 	}
 
@@ -137,7 +137,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 		value.setImportoSingoloVersamento(new BigDecimal(3).setScale(2, RoundingMode.HALF_EVEN));
 		esito.setDatiPagamentoPA(value);
 		verificaResponse.setPaaVerificaRPTRisposta(esito);
-		logger.info("VerificaRPT -> " + header.getIdentificativoUnivocoVersamento() + "-"
+		logger.debug("VerificaRPT -> " + header.getIdentificativoUnivocoVersamento() + "-"
 				+ bodyrichiesta.getIdentificativoPSP() + "-" + header.getIdentificativoDominio());
 		return verificaResponse;
 	}
@@ -153,7 +153,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 		esito.setDatiPagamentoPA(value);
 		esito.setEsito("OK");
 		attivaResponse.setPaaAttivaRPTRisposta(esito);
-		logger.info("AttivaRPT -> " + header.getIdentificativoUnivocoVersamento() + "-"
+		logger.debug("AttivaRPT -> " + header.getIdentificativoUnivocoVersamento() + "-"
 				+ bodyrichiesta.getIdentificativoPSP() + "-" + header.getIdentificativoDominio());
 		return attivaResponse;
 	}
@@ -187,7 +187,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 	public PaSendRTV2Response paSendRTV2(PaSendRTV2Request requestBody) {
 		PaSendRTV2Response paSendRTRes = new PaSendRTV2Response();
 		paSendRTRes.setOutcome(StOutcome.OK);
-		logger.info("paSendRTV2 -> " + requestBody.getReceipt().getReceiptId());
+		logger.debug("paSendRTV2 -> " + requestBody.getReceipt().getReceiptId());
 		return paSendRTRes;
 	}
 
@@ -229,7 +229,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 		dat.setTransferList(ctTransferListPA);
 
 		paGetPaymentRes.setData(dat);
-		logger.info("paGetPayment -> " + requestBody.getQrCode().getNoticeNumber());
+		logger.debug("paGetPayment -> " + requestBody.getQrCode().getNoticeNumber());
 		return paGetPaymentRes;
 	}
 
@@ -338,7 +338,7 @@ public class MergedPagamentiTelematiciCCP_I implements merged.pagopa.pagopa_api.
 			}
 
 			res.setData(data);
-			logger.info("paGetPaymentV2 -> " + requestBody.getQrCode().getNoticeNumber());
+			logger.debug("paGetPaymentV2 -> " + requestBody.getQrCode().getNoticeNumber());
 			return res;
 		} catch (Exception e) {
 			logger.error("Eccezione in MergedPagamentiTelematiciCCP_I: " + e.getMessage(), e);
