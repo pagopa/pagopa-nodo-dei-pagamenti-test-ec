@@ -1,13 +1,8 @@
 package eu.sia.nft.interceptor;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.binding.soap.interceptor.AbstractSoapInterceptor;
-import org.apache.cxf.headers.Header;
 import org.apache.cxf.interceptor.Fault;
-import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,8 +32,8 @@ public class SendInterceptor extends AbstractSoapInterceptor {
 
 		transaction.end((Long) message.getExchange().get("OutTime") * 1000);
 
-		logger.info("OP: " + message.getExchange().getBindingOperationInfo().getOperationInfo().getName() + "->"
-				+ ((Long) message.getExchange().get("OutTime") - (Long) message.getExchange().get("InTime")));
+		logger.info("OP: " + message.getExchange().getBindingOperationInfo().getOperationInfo().getName() + " elapsed "
+				+ ((Long) message.getExchange().get("OutTime") - (Long) message.getExchange().get("InTime")+"ms"));
 	}
 
 }
