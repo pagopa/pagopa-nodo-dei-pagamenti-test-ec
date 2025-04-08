@@ -24,7 +24,7 @@ spec:
               protocol: TCP
           env:
             - name: sleepEnabled
-              value: true
+              value: "true"
           resources:
             requests:
               memory: 2Gi
