@@ -22,6 +22,9 @@ spec:
             - name: mock-ec-prf
               containerPort: 8484
               protocol: TCP
+          env:
+            - name: sleepEnabled
+              value: true
           resources:
             requests:
               memory: 2Gi

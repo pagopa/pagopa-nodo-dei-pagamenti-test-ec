@@ -33,7 +33,7 @@ public class SendInterceptor extends AbstractSoapInterceptor {
 		transaction.end((Long) message.getExchange().get("OutTime") * 1000);
 
 		logger.info("OP: " + message.getExchange().getBindingOperationInfo().getOperationInfo().getName() + " elapsed "
-				+ ((Long) message.getExchange().get("OutTime") - (Long) message.getExchange().get("InTime")+"ms"));
+				+ ((Long) message.getExchange().get("OutTime") - (Long) message.getExchange().get("InTime")+"ms"+ " - sleeptime: "+ message.getExchange().get("SleepTime")));
 	}
 
 }
