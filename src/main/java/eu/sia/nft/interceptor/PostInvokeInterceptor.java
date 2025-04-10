@@ -44,7 +44,7 @@ public class PostInvokeInterceptor extends AbstractSoapInterceptor {
     	paGetPaymentV2Prob.put(0.4, 350);
     	paGetPaymentV2Prob.put(0.6, 550);
     	paGetPaymentV2Prob.put(0.75, 750);
-    	paGetPaymentV2Prob.put(0.88, 120);
+    	paGetPaymentV2Prob.put(0.88, 1200);
     	paGetPaymentV2Prob.put(1.0, 2500);
     	
     	TreeMap<Double, Integer> paSendRTProb = new TreeMap<Double, Integer>();
