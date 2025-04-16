@@ -137,7 +137,8 @@ public class PostInvokeInterceptor extends AbstractSoapInterceptor {
 		messageOperation = messageOperation.substring(messageOperation.indexOf('}')+1);
 		double randomValue = Math.random(); // [0, 1)
 		int sleep = 0;
-		if(randomValue <=0.2) {
+		boolean isTimeoutEnabled = Boolean.valueOf(System.getenv("timeoutEnabled"));
+		if(isTimeoutEnabled && randomValue <=0.2) {
 			sleep = 15100; //timeout
 		}
 		else

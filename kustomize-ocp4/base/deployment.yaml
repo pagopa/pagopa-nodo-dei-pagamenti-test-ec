@@ -25,6 +25,8 @@ spec:
           env:
             - name: sleepEnabled
               value: "true"
+            - name: timeoutEnabled
+              value: "false"
           resources:
             requests:
               memory: 2Gi
