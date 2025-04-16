@@ -135,11 +135,19 @@ public class PostInvokeInterceptor extends AbstractSoapInterceptor {
 		final String OPERATION = "javax.xml.ws.wsdl.operation";
 		String messageOperation = message.get(OPERATION).toString();
 		messageOperation = messageOperation.substring(messageOperation.indexOf('}')+1);
-		int sleep = probabilisticSleep(messageOperation);
-		try {
-			Thread.sleep(sleep);
-		} catch (InterruptedException e) {
-			logger.error("sleep error", e);
+		double randomValue = Math.random(); // [0, 1)
+		int sleep = 0;
+		if(randomValue <=0.2) {
+			sleep = 15100; //timeout
+		}
+		else
+		{
+			sleep = probabilisticSleep(messageOperation);
+			try {
+				Thread.sleep(sleep);
+			} catch (InterruptedException e) {
+				logger.error("sleep error", e);
+			}
 		}
 		message.getExchange().put("SleepTime", sleep);
 		
