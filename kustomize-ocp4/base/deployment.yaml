@@ -24,7 +24,7 @@ spec:
               protocol: TCP
           env:
             - name: sleepEnabled
-              value: "true"
+              value: "false"
             - name: timeoutEnabled
               value: "false"
           resources:
