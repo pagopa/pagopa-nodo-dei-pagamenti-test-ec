@@ -144,11 +144,11 @@ public class PostInvokeInterceptor extends AbstractSoapInterceptor {
 		else
 		{
 			sleep = probabilisticSleep(messageOperation);
-			try {
-				Thread.sleep(sleep);
-			} catch (InterruptedException e) {
-				logger.error("sleep error", e);
-			}
+		}
+		try {
+			Thread.sleep(sleep);
+		} catch (InterruptedException e) {
+			logger.error("sleep error", e);
 		}
 		message.getExchange().put("SleepTime", sleep);
 		
